@@ -3,5 +3,5 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: ghcr.io/PlanUrbi/Landing-Page:latest
+    image: ghcr.io/planUrbi/landing-page:latest
     restart: always

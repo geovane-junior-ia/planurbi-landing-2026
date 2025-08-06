@@ -8,12 +8,17 @@ on:
 
   workflow_dispatch:
 
+# NOTE:
+# I hope one day GitHub decides to support lowercase and uppercase utility
+# methods for variables, so we can use variables, such as ${{
+# github.repository_owner }} and ${{ github.repository }} in order to make this
+# workflow more generic.
 env:
   GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
   GHCR_PASSWORD: ${{ secrets.GHCR_PASSWORD }}
   REGISTRY: ghcr.io
-  OWNER: ${{ github.repository_owner }}
-  IMAGE_NAME: ${{ github.repository }}
+  OWNER: planurbi
+  IMAGE_NAME: landing-page
   IMAGE_TAG: latest
 
 jobs:
