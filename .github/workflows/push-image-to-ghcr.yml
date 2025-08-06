@@ -3,7 +3,8 @@ name: Push image to GHCR
 on:
   push:
     branches:
-      - [main, master]
+      - master
+      - main
 
   workflow_dispatch:
 
