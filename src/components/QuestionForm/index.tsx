@@ -39,9 +39,15 @@ const QuestionForm = () => {
       setEmail('');
       setQuestion('');
 
-    } catch (err: any) {
+    } catch (err: unknown) { 
       setStatus('error');
-      setError(err.message || 'Não foi possível conectar ao servidor. Tente novamente mais tarde.');
+
+      
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('Não foi possível conectar ao servidor. Tente novamente mais tarde.');
+      }
     }
   };
 
