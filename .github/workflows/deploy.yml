@@ -54,3 +54,12 @@ jobs:
 
       - name: Push images
         run: docker compose -f dev.compose.yml push
+
+      - name: Trigger deploy
+        run: |
+          curl -X POST "https://panel.giocondalab.com.br/api/compose.deploy" \
+           -H "x-api-key: ${{ secrets.DOKPLOY_API_KEY }}" \
+           -H "Content-Type: application/json" \
+           -d '{
+             "composeId": "uVlTK0dTokMRyzZnLCTKG"
+           }'
