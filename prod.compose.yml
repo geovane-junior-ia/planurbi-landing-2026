@@ -1,4 +1,5 @@
 services:
   app:
     image: ghcr.io/planurbi/landing-page:latest
+    pull_policy: always
     restart: always
