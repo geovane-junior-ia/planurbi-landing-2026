@@ -20,20 +20,28 @@ const db = admin.firestore();
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const {
-      nome, data_nascimento, rg,
-      rua, numero, complemento, cep, cidade, estado,
+    const { 
+      nome, data_nascimento, rg, email, 
+      rua, numero, complemento, cep, cidade, estado, 
       tipo_instituicao, instituicao, serie_ano
     } = body;
 
-    if (!nome || !data_nascimento || !rg || !rua || !numero || !cep || !cidade || !estado || !tipo_instituicao || !instituicao || !serie_ano) {
+   
+    if (!nome || !data_nascimento || !rg || !email || !rua || !numero || !cep || !cidade || !estado || !tipo_instituicao || !instituicao || !serie_ano) {
       return NextResponse.json({ message: 'Todos os campos são obrigatórios, exceto o complemento.' }, { status: 400 });
     }
 
     
     const rgQuery = await db.collection("selecao_campo").where("rg", "==", rg).limit(1).get();
     if (!rgQuery.empty) {
-      return NextResponse.json({ message: 'Este RG já foi cadastrado.' }, { status: 409 }); // 409 Conflict
+      
+      return NextResponse.json({ message: 'Este RG já foi cadastrado.', field: 'rg' }, { status: 409 });
+    }
+
+   
+    const emailQuery = await db.collection("selecao_campo").where("email", "==", email).limit(1).get();
+    if (!emailQuery.empty) {
+      return NextResponse.json({ message: 'Este e-mail já foi cadastrado.', field: 'email' }, { status: 409 });
     }
     
 
@@ -41,6 +49,7 @@ export async function POST(request: Request) {
       nome,
       data_nascimento,
       rg,
+      email, 
       endereco: { rua, numero, complemento, cep, cidade, estado },
       tipo_instituicao,
       instituicao,
