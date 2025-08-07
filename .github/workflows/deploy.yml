@@ -52,10 +52,10 @@ jobs:
           echo "FIREBASE_CLIENT_EMAIL=${{ secrets.FIREBASE_CLIENT_EMAIL }}" >> .env.local
           echo "FIREBASE_PRIVATE_KEY=${{ secrets.FIREBASE_PRIVATE_KEY }}" >> .env.local
 
-      - name: Build Docker image
-        run: docker build -t $IMAGE_PATH .
+      - name: Build images
+        run: docker compose -f dev.compose.yml build
 
-      - name: Push Docker image to GHCR
-        run: docker push $IMAGE_PATH
+      - name: Push images
+        run: docker compose -f dev.compose.yml push
 
         # TODO: Trigger deployment

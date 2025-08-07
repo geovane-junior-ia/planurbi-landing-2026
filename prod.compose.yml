@@ -1,0 +1,4 @@
+services:
+  app:
+    image: ghcr.io/planurbi/landing-page:latest
+    restart: always
