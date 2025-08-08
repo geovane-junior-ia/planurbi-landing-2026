@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
 import { Anek_Devanagari, Inter } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "@/contexts/AuthContext"; 
+
 
 const anek = Anek_Devanagari({
   subsets: ["latin"],
   weight: ["700", "800"],
-  variable: "--font-heading",
+  variable: "--font-heading", 
 });
 
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500"],
-  variable: "--font-body",
+  variable: "--font-body", 
 });
 
 export const metadata: Metadata = {
@@ -25,12 +27,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+   
+    <html lang="pt-BR" className={`${anek.variable} ${inter.variable}`}>
       <head>
+      
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
       </head>
-      <body className={`${anek.variable} ${inter.variable}`}>
-        {children}
+      <body>
+       
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

@@ -29,24 +29,22 @@ const QuestionForm = () => {
       const data = await response.json();
 
       if (!response.ok) {
-        // Se a resposta da API não for de sucesso (status 4xx ou 5xx)
         throw new Error(data.error || 'Falha ao enviar pergunta.');
       }
       
       setStatus('success');
-      // Limpa o formulário após o sucesso
+     
       setName('');
       setEmail('');
       setQuestion('');
 
-    } catch (err: unknown) { 
+    } catch (err) { // A CORREÇÃO ESTÁ AQUI
       setStatus('error');
-
-      
+      // Verificamos se o erro é uma instância de Error para acessar a propriedade 'message' com segurança
       if (err instanceof Error) {
         setError(err.message);
       } else {
-        setError('Não foi possível conectar ao servidor. Tente novamente mais tarde.');
+        setError('Ocorreu um erro desconhecido. Tente novamente mais tarde.');
       }
     }
   };
@@ -77,7 +75,7 @@ const QuestionForm = () => {
             onChange={(e) => setName(e.target.value)}
             required
             className={styles.input}
-            placeholder="Digite seu nome completo"
+            placeholder="Digite seu nome e sobrenome"
             disabled={status === 'submitting'}
           />
         </div>
