@@ -1,56 +1,62 @@
 .pageWrapper {
-    width: 100%;
-    background-color: var(--cor-bege);
-    padding-top: 120px; 
-    padding-bottom: 5rem;
+  width: 100%;
+  background-color: var(--cor-bege, #f8f9fa); 
+  padding-top: 120px;
+  padding-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-
-.page {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem; 
+.mainContent {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.header {
-    text-align: center;
-    margin-bottom: 4rem;
+.headerSection {
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
-.header h1 {
-    font-family: var(--font-anek);
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 700;
-    color: var(--cor-verde-escuro);
-    line-height: 1.1;
-    margin-bottom: 1rem;
+.headerSection h1 {
+  font-family: var(--font-anek, sans-serif);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--cor-verde-escuro, #212529);
+  line-height: 1.1;
+  margin-bottom: 1rem;
 }
 
-.header p {
-    font-family: var(--font-hauora);
-    font-size: 1.125rem;
-    color: var(--cor-marrom);
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
+.headerSection p {
+  font-family: var(--font-hauora, sans-serif);
+  font-size: 1.125rem;
+  color: var(--cor-marrom, #6c757d);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: 2rem;
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2rem;
 }
+
 
 @media (max-width: 768px) {
-    .pageWrapper {
-        padding-top: 100px;
-        padding-bottom: 4rem;
-    }
-    .page {
-        padding: 0 1rem;
-    }
-    .grid {
-        grid-template-columns: 1fr;
-    }
+  .pageWrapper {
+    padding-top: 100px;
+    padding-bottom: 4rem;
+  }
+
+  .mainContent {
+    padding: 0 1rem;
+  }
+
+  .gridContainer {
+    grid-template-columns: 1fr;
+  }
 }

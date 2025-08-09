@@ -1,98 +1,115 @@
 .card {
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    border: 1px solid var(--cor-bege);
-    border-radius: 12px;
-    padding: 1.5rem;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    box-shadow: 0 4px 12px rgba(89, 77, 70, 0.05);
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border-left: 5px solid; 
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(89, 77, 70, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+
+.borderAndamento {
+  border-left-color: #28a745; /* Verde */
+}
+.borderConcluido {
+  border-left-color: #007bff; /* Azul */
+}
+.borderEncerrado {
+  border-left-color: #6c757d; /* Cinza */
 }
 
 .cardHeader {
-    border-bottom: 1px solid #f0f0f0;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e9ecef;
 }
 
 .numeroEdital {
-    font-family: var(--font-hauora);
-    font-weight: 500;
-    font-size: 0.9rem;
-    color: var(--cor-marrom);
-    opacity: 0.8;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #495057;
+  margin: 0;
 }
 
 .cardBody {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 .titulo {
-    font-family: var(--font-anek);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--cor-verde-escuro);
-    line-height: 1.3;
-    margin-bottom: 1.5rem;
-}
-
-.metadata {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #212529;
+  margin: 0 0 16px 0;
+  line-height: 1.4;
 }
 
 .metaItem {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-hauora);
-    font-size: 0.95rem;
-    color: var(--cor-marrom);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #6c757d; 
+  margin-bottom: 24px; 
 }
 
 .metaItem i {
-    font-size: 1.2rem;
-    color: var(--cor-azul-primario);
+  font-size: 1.1rem;
+  color: var(--cor-azul-primario, #007bff);
 }
 
-.status strong {
-    font-weight: 600;
+.metaItem strong {
+  color: #495057; 
 }
-
-.statusAndamento { color: #2e7d32; }
-.statusConcluido { color: var(--cor-azul-primario); }
-.statusEncerrado { color: #757575; }
 
 .cardFooter {
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid #f0f0f0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: var(--font-hauora);
-    font-weight: 600;
-    color: var(--cor-azul-primario);
-    transition: color 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; 
 }
 
-.card:hover .cardFooter {
-    color: var(--cor-azul-secundario);
+
+.status {
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: #fff;
 }
 
-.cardFooter i {
-    font-size: 1.5rem;
-    transition: transform 0.2s;
+/* Novas classes para as cores do emblema */
+.statusAndamento {
+  background-color: #28a745; /* Verde */
+}
+.statusConcluido {
+  background-color: #007bff; /* Azul */
+}
+.statusEncerrado {
+  background-color: #6c757d; /* Cinza */
 }
 
-.card:hover .cardFooter i {
-    transform: translateX(5px);
+.detailsLink {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.detailsLink i {
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover .detailsLink i {
+  transform: translateX(4px);
 }

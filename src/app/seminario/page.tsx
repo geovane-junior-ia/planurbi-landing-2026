@@ -104,7 +104,7 @@ export default function SeminarioPage() {
       <div className={styles.formCard}>
         <div className={styles.brandingColumn}>
           <div className={styles.logoWrapper}>
-            <Image src="/logo-planurbi.png" alt="Logo PlanUrbi" width={180} height={55} />
+            <Image src="/planurbiBsm/logo-planurbi.png" alt="Logo PlanUrbi" width={180} height={55} />
           </div>
           <h2>I Seminário PlanUrbi</h2>
           <p>Planejamento territorial: suas implicações e correspondências.</p>
