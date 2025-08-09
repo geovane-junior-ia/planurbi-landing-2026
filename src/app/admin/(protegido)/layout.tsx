@@ -12,7 +12,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     <div className={styles.adminWrapper}>
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          
+        
           <Image src={logoPlanurbi} alt="Logo Planurbi" height={50} />
           <button onClick={logout} className={styles.logoutButton}>
             Sair
