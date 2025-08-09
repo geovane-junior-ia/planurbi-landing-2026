@@ -8,7 +8,7 @@ import styles from './Noticia.module.css';
 const noticia = {
   titulo: "PlanUrbi e Prefeitura de Barra de São Miguel alinham próximas etapas e lançam edital de seleção para agentes de campo",
   subtitulo: "Reunião de balanço do projeto confirma cronograma de atividades e abre oportunidade de trabalho para jovens da comunidade",
-  imagemUrl: "/logo-planurbi.png",
+  imagemUrl: "/planurbiBsm/logo-planurbi.png",
   dataPublicacao: "07 de Agosto de 2025",
   texto: `O projeto PlanUrbi, realizou hoje (07) uma reunião de balanço com o Prefeito da Barra de São Miguel, Henrique Alves e sua equipe para definir as atividades do próximo ciclo do projeto. O encontro, que contou com a presença da coordenadora técnica do PlanUrbi, Melissa Mota, da secretária de Administração e Finanças Bruna Jucá e do secretário adjunto Yuri Balbino, resultou na confirmação do lançamento de um edital para a seleção de agentes de campo.\n\n
 A pauta da reunião incluiu a análise de desempenho dos dois primeiros meses do projeto, a definição de uma campanha comunicacional prévia ao levantamento de campo e a metodologia de validação do município para a disponibilização dos produtos e documentação correlata do PlanUrbi. Entre os pontos de destaque, foi reafirmada a realização de quatro oficinas participativas físicas e duas virtuais, uma das prioridades para o próximo mês de agosto.\n\n

@@ -20,10 +20,10 @@ const noticia = {
     `O PlanUrbi – Programa de Planejamento Urbano Inteligente é uma iniciativa inovadora voltada à revisão participativa do Plano Diretor dos municípios alagoanos, com uso de tecnologias digitais, metodologias colaborativas e produção científica aplicada. Além de ser um instrumento legal, o plano será fruto de um processo educativo e de escuta ativa da população, envolvendo pesquisa, extensão universitária e soluções técnicas modernas. O objetivo é construir uma cidade mais justa, eficiente e preparada para o futuro, com decisões sustentadas por dados, participação popular e visão estratégica.`,
   ],
   imagens: [
-    "/audiencia.jpg", 
-    "/noticia-revisao-2.jpg",
-    "/noticia-revisao-3.jpg",
-    "/noticia-revisao-4.jpg",
+    "/noticias/audiencia.jpg", 
+    "/noticias/noticia-revisao-2.jpg",
+    "/noticias/noticia-revisao-3.jpg",
+    "/noticias/noticia-revisao-4.jpg",
   ],
   maisInfo: {
     titulo: "Mais Informações",

@@ -8,7 +8,7 @@ import styles from './Noticia.module.css';
 const noticia = {
   titulo: "FEPESA realiza I Seminário PlanUrbi sobre planejamento urbano inteligente",
   subtitulo: "Evento gratuito em Maceió reúne especialistas, gestores e acadêmicos para debater soluções inovadoras para as cidades",
-  imagemUrl: "/seminario.jpg", 
+  imagemUrl: "/noticias/seminario.jpg", 
   dataPublicacao: "05 de Agosto de 2025",
   texto: `A Fundação de Apoio ao Ensino, Pesquisa e Extensão de Alagoas (FEPESA) realiza no dia 13 de agosto, a partir das 14h, no auditório do CREA/AL, o I Seminário PlanUrbi – Planejamento Urbano Inteligente, com o objetivo de promover o diálogo técnico e interdisciplinar sobre os desafios e caminhos possíveis para a construção de cidades mais inteligentes, sustentáveis e inclusivas. Gratuito e aberto ao público e com certificação digital para os participantes, o evento é voltado a profissionais e estudantes das áreas de arquitetura, urbanismo, engenharia, direito, gestão pública e outras afins, além de representantes da sociedade civil interessados em discutir o futuro das cidades. A iniciativa é parte das ações do PlanUrbi, projeto coordenado pela FEPESA com foco na inovação da gestão urbana a partir de tecnologias, evidências técnicas e participação social. As vagas são limitadas e as inscrições estão disponíveis pelo portal planurbi.com.br ou pelo perfil do Instagram @Planurbi_.
 

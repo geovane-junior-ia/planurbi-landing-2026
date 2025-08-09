@@ -16,7 +16,7 @@ export function Footer() {
           <h4 className={styles.footerTitle}>Realização:</h4>
           <div className={styles.logoWrapper}>
             <Image
-              src="/logo-prefeitura-placeholder.png" 
+              src="/logosExternas/logo-prefeitura-placeholder.png" 
               alt="Logo da Prefeitura da Barra de São Miguel"
               width={180}
               height={75}
@@ -28,7 +28,7 @@ export function Footer() {
         <div className={styles.fepesaColumn}>
           <div className={styles.logoWrapper}>
             <Image
-              src="/logo-fepesa-placeholder.png"
+              src="/logosExternas/logo-fepesa-placeholder.png"
               alt="Logo da FEPESA"
               width={180}
               height={75}
