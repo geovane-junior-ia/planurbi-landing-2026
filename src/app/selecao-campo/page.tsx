@@ -181,7 +181,7 @@ export default function SelecaoPage() {
     <div className={styles.pageContainer}>
       <div className={styles.formCard}>
         <div className={styles.brandingColumn}>
-          <div className={styles.logoWrapper}><Image src="/logo-planurbi.png" alt="Logo PlanUrbi" width={180} height={55} /></div>
+          <div className={styles.logoWrapper}><Image src="/planurbiBsm/logo-planurbi.png" alt="Logo PlanUrbi" width={180} height={55} /></div>
           <h2>Seleção de Equipe de Campo</h2>
           <p>Faça parte da equipa que irá transformar o futuro da Barra de São Miguel.</p>
         </div>
