@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import withAuth from '@/components/auth/withAuth';
 import styles from './Dashboard.module.css';
-import { FaQuestionCircle, FaUsers } from 'react-icons/fa';
+import { FaQuestionCircle, FaUsers, FaClipboardList } from 'react-icons/fa';
 
 function DashboardHub() {
   return (
@@ -14,6 +14,17 @@ function DashboardHub() {
       </p>
 
       <div className={styles.grid}>
+        {/* Card para Relatório do Seminário */}
+        <Link href="/admin/relatorio-seminario" className={styles.card}>
+          <div className={styles.cardIconWrapper}>
+            <FaClipboardList className={styles.cardIcon} />
+          </div>
+          <h2 className={styles.cardTitle}>Relatório do Seminário</h2>
+          <p className={styles.cardDescription}>
+            Acompanhe os inscritos e realize o check-in dos participantes no dia do evento.
+          </p>
+        </Link>
+
         {/* Card para Perguntas do Seminário */}
         <Link href="/admin/seminario-perguntas" className={styles.card}>
           <div className={styles.cardIconWrapper}>
@@ -21,7 +32,7 @@ function DashboardHub() {
           </div>
           <h2 className={styles.cardTitle}>Perguntas do Seminário</h2>
           <p className={styles.cardDescription}>
-            Modere, aprove e gerencie as perguntas enviadas durante o seminário em tempo real.
+            Modere e gerencie as perguntas enviadas durante o seminário em tempo real.
           </p>
         </Link>
 
@@ -36,8 +47,6 @@ function DashboardHub() {
           </p>
         </Link>
         
-        {/* Futuros cards podem ser adicionados aqui */}
-
       </div>
     </div>
   );
