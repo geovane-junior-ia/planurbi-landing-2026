@@ -8,7 +8,7 @@ export const metadata = {
 };
 
 export default function SeminarioPage() {
-  const NOME_DO_CANAL_DA_TWITCH = "gaules";
+  const NOME_DO_CANAL_DA_TWITCH = "Planurbi";
 
   return (
     <div className={styles.page}>
