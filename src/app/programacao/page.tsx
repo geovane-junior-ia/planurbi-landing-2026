@@ -1,9 +1,11 @@
 "use client";
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { ModernTimeline, TimelineEvent, Talk } from '@/components/ui/ModernTimeline';
+import { ModernTimeline, TimelineEvent } from '@/components/ui/ModernTimeline';
+import TwitchEmbed from '@/components/TwitchEmbed';
 import styles from './Programacao.module.css';
 import { useState, useEffect } from 'react';
 
@@ -128,17 +130,20 @@ const programSchedule: ScheduleItem[] = [
   }
 ];
 
+// Constantes para controlar a visibilidade da transmissão
+const LIVE_STREAM_START_TIME = "2025-08-13T12:00:00"; // A transmissão aparece ao meio-dia
+const LIVE_STREAM_END_TIME = "2025-08-13T22:30:00";   // A transmissão some às 22:30
+
 const getEventStatus = (startTime: string, endTime: string): "completed" | "current" | "upcoming" => {
-  const now = new Date(); 
-  const eventDate = "2025-08-13T"; // Data do evento
-  const startDateTime = new Date(eventDate + startTime + ":00");
-  const endDateTime = new Date(eventDate + endTime + ":00");
+  const now = new Date();
+  const eventDate = LIVE_STREAM_START_TIME.split('T')[0];
+  const startDateTime = new Date(`${eventDate}T${startTime}:00`);
+  const endDateTime = new Date(`${eventDate}T${endTime}:00`);
 
   if (now > endDateTime) return "completed";
   if (now >= startDateTime && now <= endDateTime) return "current";
   return "upcoming";
 };
-
 
 const SpeakerProfileCard = ({ name, title, avatar, bio }: { name: string, title: string, avatar: string, bio: string }) => (
   <div className={styles.speakerProfileCard}>
@@ -162,8 +167,20 @@ const SpeakerProfileCard = ({ name, title, avatar, bio }: { name: string, title:
 
 export default function SeminarioPage() {
   const [liveProgram, setLiveProgram] = useState<TimelineEvent[]>([]);
+  const [showLiveStream, setShowLiveStream] = useState(false); // NOVO ESTADO
+  const NOME_DO_CANAL_DA_TWITCH = "Planurbi";
 
   useEffect(() => {
+    // Função para verificar se a transmissão deve estar visível
+    const checkLiveStreamVisibility = () => {
+      const now = new Date();
+      const startTime = new Date(LIVE_STREAM_START_TIME);
+      const endTime = new Date(LIVE_STREAM_END_TIME);
+      
+      const shouldShow = now >= startTime && now <= endTime;
+      setShowLiveStream(shouldShow);
+    };
+
     const updateProgramStatus = () => {
       const updatedProgram = programSchedule.map(event => ({
         ...event,
@@ -172,8 +189,14 @@ export default function SeminarioPage() {
       setLiveProgram(updatedProgram);
     };
 
+    checkLiveStreamVisibility();
     updateProgramStatus();
-    const interval = setInterval(updateProgramStatus, 60000); 
+
+   
+    const interval = setInterval(() => {
+      checkLiveStreamVisibility();
+      updateProgramStatus();
+    }, 60000); 
 
     return () => clearInterval(interval);
   }, []);
@@ -208,6 +231,26 @@ export default function SeminarioPage() {
             </a>
           </div>
         </section>
+
+       
+        {showLiveStream && (
+          <section id="ao-vivo" className={styles.liveSection}>
+            <div className={styles.liveHeader}>
+              <h2 className={styles.sectionTitle}><i className='bx bxs-circle bx-flashing' style={{color: '#ff0000', fontSize: '0.8em'}}></i> AO VIVO</h2>
+              <p className={styles.sectionSubtitle}>Acompanhe a nossa transmissão em tempo real e participe enviando suas perguntas.</p>
+            </div>
+            <div className={styles.videoWrapper}>
+              <TwitchEmbed channelName={NOME_DO_CANAL_DA_TWITCH} />
+            </div>
+            <div className={styles.callToAction}>
+              <h2>Quer interagir?</h2>
+              <p>Clique no botão abaixo para enviar sua pergunta diretamente para nossa equipe de moderação.</p>
+              <Link href="/seminario/perguntas" className={styles.actionButton}>
+                Enviar Pergunta Agora
+              </Link>
+            </div>
+          </section>
+        )}
 
         <section className={styles.speakersSection}>
            <div className={styles.speakersHeader}>

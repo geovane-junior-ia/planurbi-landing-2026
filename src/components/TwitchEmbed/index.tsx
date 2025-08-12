@@ -1,30 +1,28 @@
+'use client';
+
+import styles from './TwitchEmbed.module.css';
+
 interface TwitchEmbedProps {
-  /**
-   * O nome de usuário do canal da Twitch que será transmitido.
-   * Ex: "seu_canal_da_twitch"
-   */
   channelName: string;
 }
 
 /**
- * Componente para incorporar uma transmissão ao vivo da Twitch de forma responsiva.
- * Ele determina automaticamente o domínio pai (localhost para desenvolvimento, domínio de produção para o site no ar)
- * para cumprir as políticas de embed da Twitch.
+ * Componente para incorporar uma transmissão da Twitch de forma responsiva.
+ * Ele usa o hostname atual para o parâmetro 'parent', necessário pela API da Twitch.
  */
 const TwitchEmbed = ({ channelName }: TwitchEmbedProps) => {
-  // A Vercel disponibiliza a variável de ambiente NEXT_PUBLIC_VERCEL_URL com a URL do deploy.
-  // Em ambiente local, essa variável não existe, então usamos 'localhost'.
-  // Esta é uma forma robusta de lidar com o parâmetro `parent` da Twitch.
-  const parentDomain = process.env.NEXT_PUBLIC_VERCEL_URL || "localhost";
-
-  const twitchSrc = `https://player.twitch.tv/?channel=${channelName}&parent=${parentDomain}&muted=true`;
+  // Garante que window.location.hostname só seja acessado no lado do cliente.
+  const parentDomain = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
 
   return (
-    <div className="aspect-ratio-16-9">
+    <div className={styles.embedContainer}>
       <iframe
-        src={twitchSrc}
+        src={`https://player.twitch.tv/?channel=${channelName}&parent=${parentDomain}&autoplay=true&muted=false`}
+        height="100%"
+        width="100%"
         allowFullScreen={true}
-        title={`Transmissão ao vivo do canal ${channelName} no Twitch`}
+        title={`Transmissão da Twitch do canal ${channelName}`}
+        className={styles.iframe}
       ></iframe>
     </div>
   );
