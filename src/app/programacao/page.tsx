@@ -130,9 +130,8 @@ const programSchedule: ScheduleItem[] = [
   }
 ];
 
-// Constantes para controlar a visibilidade da transmissão
-const LIVE_STREAM_START_TIME = "2025-08-13T12:00:00"; // A transmissão aparece ao meio-dia
-const LIVE_STREAM_END_TIME = "2025-08-13T22:30:00";   // A transmissão some às 22:30
+const LIVE_STREAM_START_TIME = "2025-08-13T12:00:00";
+const LIVE_STREAM_END_TIME = "2025-08-13T22:30:00";
 
 const getEventStatus = (startTime: string, endTime: string): "completed" | "current" | "upcoming" => {
   const now = new Date();
@@ -167,11 +166,10 @@ const SpeakerProfileCard = ({ name, title, avatar, bio }: { name: string, title:
 
 export default function SeminarioPage() {
   const [liveProgram, setLiveProgram] = useState<TimelineEvent[]>([]);
-  const [showLiveStream, setShowLiveStream] = useState(false); // NOVO ESTADO
+  const [showLiveStream, setShowLiveStream] = useState(false);
   const NOME_DO_CANAL_DA_TWITCH = "Planurbi";
 
   useEffect(() => {
-    // Função para verificar se a transmissão deve estar visível
     const checkLiveStreamVisibility = () => {
       const now = new Date();
       const startTime = new Date(LIVE_STREAM_START_TIME);
@@ -192,7 +190,6 @@ export default function SeminarioPage() {
     checkLiveStreamVisibility();
     updateProgramStatus();
 
-   
     const interval = setInterval(() => {
       checkLiveStreamVisibility();
       updateProgramStatus();
@@ -209,7 +206,7 @@ export default function SeminarioPage() {
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>I Seminário PlanUrbi – Planejamento Territorial: suas implicações e correspondências</h1>
             <p className={styles.heroSubtitle}>
-              Um espaço de diálogo técnico e interdisciplinar para debater o planejamento urbano como instrumento estratégico para cidades mais inteligentes, sustentáveis e inclusivas.
+              Obrigado por participar! O I Seminário PlanUrbi foi um espaço de diálogo técnico e interdisciplinar sobre o futuro do planejamento urbano.
             </p>
             <div className={styles.eventDetails}>
               <div className={styles.detailItem}>
@@ -225,14 +222,9 @@ export default function SeminarioPage() {
                 <span>Auditório do CREA/AL</span>
               </div>
             </div>
-            <a href="/seminario" className={styles.heroButton}>
-              Inscreva-se Gratuitamente
-              <i className='bx bx-right-arrow-alt'></i>
-            </a>
           </div>
         </section>
 
-       
         {showLiveStream && (
           <section id="ao-vivo" className={styles.liveSection}>
             <div className={styles.liveHeader}>
@@ -255,7 +247,7 @@ export default function SeminarioPage() {
         <section className={styles.speakersSection}>
            <div className={styles.speakersHeader}>
             <h2 className={styles.sectionTitle}>Conheça Nossos Palestrantes</h2>
-            <p className={styles.sectionSubtitle}>Especialistas renomados que irão compartilhar conhecimento e insights valiosos sobre o futuro do planejamento urbano.</p>
+            <p className={styles.sectionSubtitle}>Especialistas renomados que compartilharam conhecimento e insights valiosos sobre o futuro do planejamento urbano.</p>
            </div>
            <div className={styles.speakersGrid}>
             {speakers.map((speaker, index) => (

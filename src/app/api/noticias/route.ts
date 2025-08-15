@@ -3,6 +3,14 @@ import { NextResponse } from 'next/server';
 
 const mockNoticias = [
   {
+    id: '5',
+    titulo: "I Seminário PlanUrbi consolida debate sobre planejamento urbano inteligente",
+    resumo: "Evento discutiu inovação, legislação e inteligência artificial no planejamento das cidades.",
+    imagemUrl: "/noticias/1-seminario/foto-destaque.jpeg",
+    slug: "i-seminario-planurbi-consolida-debate-sobre-planejamento-urbano-inteligente", 
+    dataPublicacao: new Date('2025-08-15T10:00:00Z').toISOString(),
+  },
+  {
     id: '4',
     titulo: "PlanUrbi e Prefeitura de Barra de São Miguel alinham próximas etapas e lançam edital de seleção para agentes de campo",
     resumo: "Reunião de balanço do projeto confirma cronograma de atividades e abre oportunidade de trabalho para jovens da comunidade",
