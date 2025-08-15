@@ -18,7 +18,7 @@ export default function HomePage() {
 
   
   // 1. Link para o banner do modal
-  const seminarUrl = "/programacao"; 
+  const  banner = "https://docs.google.com/forms/d/e/1FAIpQLScDO9BoQoZRkVd_OcgV1wyWCo9B9pln14kgpUsVmC5nw4LcsA/viewform"; 
   // 2. Link para o questionário (botão e QR Code)
   const questionnaireUrl = "https://docs.google.com/forms/d/e/1FAIpQLScDO9BoQoZRkVd_OcgV1wyWCo9B9pln14kgpUsVmC5nw4LcsA/viewform"; 
 
@@ -41,7 +41,7 @@ export default function HomePage() {
     <>
       
       
-      {isModalOpen && <BannerModal onClose={handleCloseModal} formUrl={seminarUrl} />}
+      {isModalOpen && <BannerModal onClose={handleCloseModal} formUrl={banner} />}
       
       <Header />
       <main>
