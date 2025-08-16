@@ -37,7 +37,7 @@ export function Footer() {
           <div className={styles.contactInfo}>
             <p>Rua Aminadab Valente, 59 – Trapiche da Barra – Maceió/AL</p>
             <p>(82) 3223-5847</p>
-            <p>www.fepesa.org.br</p>
+            <p><a href="https://fepesa.org.br" target='_blank'>ww.fepesa.org.br</a></p>
           </div>
         </div>
       </div>
