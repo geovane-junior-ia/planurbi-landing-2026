@@ -1,3 +1,5 @@
+/* Caminho: src/app/editais/001-2025-bolsistas-tutores/EditalDetalhe.module.css */
+
 .pageWrapper {
     background-color: var(--cor-bege);
     width: 100%;
@@ -158,6 +160,7 @@
 }
 
 .anexoLink {
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
     gap: 0.75rem;
