@@ -20,6 +20,10 @@ const edital: EditalDetalhado = {
   periodoInscricao: "De 08/08/2025 [12:00h] à 22/08/2025 [17:00h]",
   anexos: [
     {
+      titulo: "Lista dos Inscritos para Entrevista",
+      url: "/docs/editais/listaCandidatos.pdf",
+    },
+    {
       titulo: "Edital Completo em PDF",
       url: "/docs/editais/edital-001-2025-bolsistas.pdf",
     },
