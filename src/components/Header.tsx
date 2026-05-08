@@ -1,8 +1,18 @@
 "use client";
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import styles from './Header.module.css';
+
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import styles from "./Header.module.css";
+
+const navItems = [
+  { href: "/#quem-somos", label: "Quem somos" },
+  { href: "/#solucoes", label: "Solucoes" },
+  { href: "/#metodologia", label: "Metodologia" },
+  { href: "/#projetos", label: "Projetos" },
+  { href: "/#conteudo", label: "Conteudo" },
+  { href: "/#contato", label: "Contato" },
+];
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,42 +23,38 @@ export function Header() {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); 
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => setIsMenuOpen((current) => !current);
 
   return (
-    <header className={`${styles.headerSection} ${isScrolled ? styles.scrolled : ''}`}>
+    <header className={`${styles.headerSection} ${isScrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
-        <Link href="/" className={`${styles.logo} ${isScrolled ? styles.visible : ''}`}>
-          <Image
-            src="/icon-azul.png"
-            alt="Logo PlanUrbi"
-            width={70}
-            height={45}
-            priority
-          />
+        <Link href="/" className={`${styles.logo} ${isScrolled ? styles.visible : ""}`}>
+          <Image src="/icon-azul.png" alt="Logo PlanUrbi" width={70} height={45} priority />
         </Link>
-        
+
         <nav className={styles.navDesktop}>
-          <Link href="/">Início</Link>
-          <Link href="/programacao">Seminário</Link>
-          <Link href="/editais">Editais</Link>
-          <Link href="/noticias">Notícias</Link>
+          {navItems.map((item) => (
+            <Link href={item.href} key={item.href}>
+              {item.label}
+            </Link>
+          ))}
         </nav>
-       
+
         <button className={styles.hamburger} onClick={toggleMenu} aria-label="Abrir menu">
-          <i className={isMenuOpen ? 'bx bx-x' : 'bx bx-menu'}></i>
+          <i className={isMenuOpen ? "bx bx-x" : "bx bx-menu"} />
         </button>
-        
-        <nav className={`${styles.navMobile} ${isMenuOpen ? styles.open : ''}`}>
-          <Link href="/" onClick={toggleMenu}>Início</Link>
-          <Link href="/programacao" onClick={toggleMenu}>Seminário</Link>
-          <Link href="/editais" onClick={toggleMenu}>Editais</Link>
-          <Link href="/noticias" onClick={toggleMenu}>Notícias</Link>
+
+        <nav className={`${styles.navMobile} ${isMenuOpen ? styles.open : ""}`}>
+          {navItems.map((item) => (
+            <Link href={item.href} key={item.href} onClick={toggleMenu}>
+              {item.label}
+            </Link>
+          ))}
         </nav>
       </div>
     </header>
