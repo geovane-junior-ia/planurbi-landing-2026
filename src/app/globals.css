@@ -1,27 +1,69 @@
 :root {
-  /* Cores principais do projeto */
+  /* ===== Design System PlanUrbi 2026 ===== */
+
+  /* Verdes institucionais */
+  --planurbi-green-900: #00362D;
+  --planurbi-green-800: #054538;
+  --planurbi-green-700: #0B5A4B;
+  --planurbi-green-500: #1C8B7D;
+  --planurbi-green-300: #5BB6A6;
+
+  /* Areia / acentos quentes */
+  --planurbi-sand-500: #D9B97A;
+  --planurbi-sand-300: #E8D4B9;
+  --planurbi-sand-100: #F5E9D6;
+
+  /* Texto e neutros */
+  --planurbi-brown-700: #594D46;
+  --planurbi-ink-900: #172D28;
+  --planurbi-ink-700: #2C403B;
+  --planurbi-ink-600: #4D5A54;
+  --planurbi-ink-400: #7D8A85;
+
+  /* Apoio frio */
+  --planurbi-blue-500: #0055A5;
+  --planurbi-blue-300: #6E8FC9;
+  --planurbi-blue-200: #9EBAF2;
+
+  /* Superfícies claras */
+  --planurbi-cream-100: #FDFAF6;
+  --planurbi-stone-100: #F4F1EA;
+  --planurbi-stone-200: #EDE7DC;
+  --planurbi-stone-300: #DED7CA;
+  --planurbi-white: #FFFFFF;
+
+  /* Compatibilidade com nomes antigos */
   --cor-verde-escuro: #00362D;
   --cor-marrom: #594D46;
   --cor-bege: #E8D4B9;
   --cor-azul-claro: #9EBAF2;
-
-  
-  --cor-azul-primario: #0055A5;   /* Azul para botões e links */
-  --cor-azul-secundario: #003366; /* Azul mais escuro para hover */
-  
+  --cor-azul-primario: #0055A5;
+  --cor-azul-secundario: #003366;
   --cor-sucesso-fundo: #F0F5F0;
   --cor-sucesso-texto: #00362D;
   --cor-sucesso-borda: #A8C4B0;
-
   --cor-erro-fundo: #FFF0F0;
   --cor-erro-texto: #594D46;
   --cor-erro-borda: #E8B9B9;
 
-  
-  --font-anek: "Anek Devanagari", sans-serif;
-  --font-hauora: "Hauora", sans-serif;
-}
+  /* Tipografia */
+  --font-anek: var(--font-display), "Anek Devanagari", system-ui, sans-serif;
+  --font-hauora: var(--font-body), "Hauora", system-ui, sans-serif;
 
+  /* Raios e elevações */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 18px 42px rgba(0, 54, 45, 0.06);
+  --shadow-medium: 0 24px 60px rgba(0, 54, 45, 0.12);
+  --shadow-strong: 0 32px 90px rgba(0, 54, 45, 0.22);
+
+  --container-width: 1180px;
+}
 
 * {
   box-sizing: border-box;
@@ -29,16 +71,24 @@
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: #fdfaf6; 
+  background-color: var(--planurbi-cream-100);
 }
 
 body {
-  color: var(--cor-marrom); 
-  font-family: var(--font-hauora); 
+  color: var(--planurbi-ink-900);
+  font-family: var(--font-hauora);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -46,12 +96,29 @@ a {
   text-decoration: none;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: var(--planurbi-green-700);
+  color: var(--planurbi-cream-100);
+}
+
+/* Foco acessível padrão */
+:focus-visible {
+  outline: 3px solid var(--planurbi-green-500);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 /* Estilos para o player de vídeo responsivo */
 .aspect-ratio-16-9 {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* Proporção 16:9 (9 / 16 = 0.5625) */
-  background-color: #000; /* Fundo preto enquanto o iframe carrega */
+  padding-top: 56.25%;
+  background-color: #000;
 
   iframe {
     position: absolute;
@@ -59,6 +126,6 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    border: none; /* Remove a borda padrão do iframe */
+    border: none;
   }
 }

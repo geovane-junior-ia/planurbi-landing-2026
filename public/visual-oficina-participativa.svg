@@ -1,0 +1,22 @@
+<svg width="1200" height="820" viewBox="0 0 1200 820" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="820" fill="#F4F1EA"/>
+  <rect x="84" y="84" width="1032" height="652" fill="#FDFAF6" stroke="#D4CFC5"/>
+  <rect x="138" y="136" width="414" height="276" fill="#E8D4B9"/>
+  <rect x="168" y="166" width="354" height="216" fill="#FDFAF6"/>
+  <path d="M210 330L286 232L356 286L430 196L492 330H210Z" fill="#1C8B7D" fill-opacity=".28" stroke="#00362D" stroke-width="4"/>
+  <circle cx="286" cy="232" r="12" fill="#0055A5"/>
+  <circle cx="430" cy="196" r="12" fill="#1C8B7D"/>
+  <rect x="634" y="136" width="360" height="38" fill="#00362D"/>
+  <rect x="634" y="208" width="252" height="16" fill="#0B5A4B"/>
+  <rect x="634" y="246" width="310" height="16" fill="#0055A5"/>
+  <rect x="634" y="284" width="190" height="16" fill="#594D46"/>
+  <rect x="634" y="344" width="420" height="146" fill="#F4F1EA" stroke="#D4CFC5"/>
+  <circle cx="704" cy="574" r="42" fill="#00362D"/>
+  <circle cx="820" cy="574" r="42" fill="#0B5A4B"/>
+  <circle cx="936" cy="574" r="42" fill="#0055A5"/>
+  <rect x="662" y="636" width="84" height="18" fill="#D4CFC5"/>
+  <rect x="778" y="636" width="84" height="18" fill="#D4CFC5"/>
+  <rect x="894" y="636" width="84" height="18" fill="#D4CFC5"/>
+  <text x="138" y="486" fill="#172D28" font-family="Arial, sans-serif" font-size="38" font-weight="700">Oficina técnica e participação social</text>
+  <text x="138" y="528" fill="#594D46" font-family="Arial, sans-serif" font-size="19">escuta pública, pactuação institucional e leitura comunitária</text>
+</svg>

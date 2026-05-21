@@ -13,7 +13,7 @@ export function Footer() {
 
         <div className={styles.realizacaoColumn}>
           <h4 className={styles.footerTitle}>PlanUrbi</h4>
-          <p>Planejamento urbano, dados, legislacao e tecnologia para gestao publica municipal.</p>
+          <p>Planejamento urbano, dados, legislação e tecnologia para gestão pública municipal.</p>
         </div>
 
         <div className={styles.fepesaColumn}>
@@ -21,7 +21,7 @@ export function Footer() {
             <Image src="/logosExternas/logo-fepesa-placeholder.png" alt="Logo da FEPESA" width={180} height={75} />
           </div>
           <div className={styles.contactInfo}>
-            <p>Rua Aminadab Valente, 59 - Trapiche da Barra - Maceio/AL</p>
+            <p>Rua Aminadab Valente, 59 - Trapiche da Barra - Maceió/AL</p>
             <p>(82) 3223-5847</p>
             <p>
               <a href="https://fepesa.org.br" target="_blank">

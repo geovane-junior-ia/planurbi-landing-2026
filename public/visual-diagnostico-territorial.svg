@@ -1,0 +1,27 @@
+<svg width="1200" height="820" viewBox="0 0 1200 820" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="820" fill="#FDFAF6"/>
+  <rect x="70" y="70" width="1060" height="680" rx="0" fill="#F4F1EA" stroke="#D4CFC5"/>
+  <path d="M70 188H1130" stroke="#D4CFC5"/>
+  <path d="M210 70V750" stroke="#D4CFC5"/>
+  <circle cx="140" cy="130" r="18" fill="#00362D"/>
+  <circle cx="140" cy="195" r="18" fill="#1C8B7D"/>
+  <circle cx="140" cy="260" r="18" fill="#0055A5"/>
+  <path d="M310 562L397 296L566 214L814 318L926 496L742 620L486 642L310 562Z" fill="#1C8B7D" fill-opacity=".14" stroke="#00362D" stroke-width="4"/>
+  <path d="M397 296L520 455L310 562M520 455L566 214L690 420L926 496M520 455L486 642L690 420L742 620" stroke="#0055A5" stroke-opacity=".48" stroke-width="3"/>
+  <circle cx="397" cy="296" r="11" fill="#00362D" stroke="#E8D4B9" stroke-width="6"/>
+  <circle cx="520" cy="455" r="11" fill="#00362D" stroke="#E8D4B9" stroke-width="6"/>
+  <circle cx="690" cy="420" r="11" fill="#00362D" stroke="#E8D4B9" stroke-width="6"/>
+  <circle cx="742" cy="620" r="11" fill="#00362D" stroke="#E8D4B9" stroke-width="6"/>
+  <rect x="760" y="142" width="260" height="74" fill="#00362D"/>
+  <text x="790" y="173" fill="#FDFAF6" font-family="Arial, sans-serif" font-size="18" font-weight="700">Diagnóstico territorial</text>
+  <text x="790" y="198" fill="#E8D4B9" font-family="Arial, sans-serif" font-size="14">camadas + indicadores</text>
+  <rect x="780" y="254" width="70" height="70" fill="#0055A5"/>
+  <rect x="870" y="254" width="70" height="70" fill="#1C8B7D"/>
+  <rect x="960" y="254" width="70" height="70" fill="#E8D4B9"/>
+  <rect x="780" y="360" width="250" height="12" fill="#00362D"/>
+  <rect x="780" y="390" width="184" height="12" fill="#0B5A4B"/>
+  <rect x="780" y="420" width="214" height="12" fill="#0055A5"/>
+  <rect x="780" y="450" width="146" height="12" fill="#594D46"/>
+  <text x="300" y="168" fill="#172D28" font-family="Arial, sans-serif" font-size="34" font-weight="700">Leitura integrada do território</text>
+  <text x="300" y="206" fill="#594D46" font-family="Arial, sans-serif" font-size="18">zoneamento, cadastro, legislação e prioridades urbanas</text>
+</svg>

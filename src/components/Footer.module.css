@@ -1,58 +1,84 @@
 .footerSection {
-  background-color: var(--cor-verde-escuro);
-  color: #B8BCBD;
-  padding: 4rem 2rem 2rem;
-  border-top: 1px solid rgba(184, 188, 189, 0.2);
+  background: linear-gradient(180deg, var(--planurbi-green-900) 0%, #022620 100%);
+  color: rgba(253, 250, 246, 0.78);
+  padding: 5rem 2rem 2rem;
+  border-top: 1px solid rgba(232, 212, 185, 0.16);
+  position: relative;
+  overflow: hidden;
+}
+
+.footerSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/grafismo-mapa.png");
+  background-size: 40%;
+  background-position: right -10% center;
+  background-repeat: no-repeat;
+  opacity: 0.06;
+  pointer-events: none;
 }
 
 .container {
-  max-width: 1200px;
+  position: relative;
+  max-width: 1180px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 4rem;
+  gap: 3rem;
 }
 
 .mainContact {
   width: 100%;
   text-align: center;
-  margin-bottom: 3rem;
-  padding-bottom: 3rem;
-  border-bottom: 1px solid rgba(184, 188, 189, 0.1);
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(232, 212, 185, 0.18);
 }
 
 .mainContact h3 {
-  font-family: var(--font-body);
-  font-size: 1.2rem;
-  font-weight: 400;
+  font-family: var(--font-anek);
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--planurbi-cream-100);
 }
 
 .mainContact a {
-  font-weight: 600;
-  color: #FFFFFF;
+  font-weight: 700;
+  color: var(--planurbi-sand-300);
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  transition: color 0.25s ease;
 }
 
 .mainContact a:hover {
-  opacity: 0.8;
+  color: var(--planurbi-sand-500);
 }
 
 .footerTitle {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-family: var(--font-anek);
+  font-size: 0.78rem;
   font-weight: 700;
-  color: #FFFFFF;
-  margin-bottom: 1.5rem;
+  color: var(--planurbi-sand-300);
+  margin-bottom: 1.2rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.18em;
 }
 
-.realizacaoColumn, .fepesaColumn {
+.realizacaoColumn,
+.fepesaColumn {
   display: flex;
   flex-direction: column;
+  max-width: 320px;
+}
+
+.realizacaoColumn p {
+  font-family: var(--font-hauora);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(253, 250, 246, 0.72);
 }
 
 .logoWrapper {
@@ -60,10 +86,10 @@
 }
 
 .logoWrapper img {
-  width: 180px;
+  width: 160px;
   height: auto;
   object-fit: contain;
-  opacity: 0.9;
+  opacity: 0.92;
   transition: opacity 0.3s ease;
 }
 
@@ -78,33 +104,51 @@
 .contactInfo {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.7rem;
 }
 
 .contactInfo p {
-  font-family: var(--font-body);
-  font-size: 1rem;
+  font-family: var(--font-hauora);
+  font-size: 0.92rem;
   line-height: 1.6;
-  opacity: 0.9;
+  color: rgba(253, 250, 246, 0.72);
+}
+
+.contactInfo a {
+  color: var(--planurbi-sand-300);
+  transition: color 0.25s ease;
+}
+
+.contactInfo a:hover {
+  color: var(--planurbi-sand-500);
 }
 
 .copyRight {
+  position: relative;
   text-align: center;
   margin-top: 4rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(184, 188, 189, 0.1);
+  border-top: 1px solid rgba(232, 212, 185, 0.14);
 }
 
 .copyRight p {
-  font-size: 0.9rem;
-  opacity: 0.7;
+  font-size: 0.85rem;
+  color: rgba(253, 250, 246, 0.55);
+  letter-spacing: 0.02em;
 }
 
 @media (max-width: 768px) {
+  .footerSection {
+    padding: 4rem 1.5rem 1.5rem;
+  }
   .container {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 3rem;
+    gap: 2.5rem;
+  }
+  .realizacaoColumn,
+  .fepesaColumn {
+    align-items: center;
   }
 }
