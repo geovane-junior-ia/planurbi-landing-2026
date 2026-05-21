@@ -276,7 +276,7 @@ export function NewHome() {
         <div className={styles.container}>
           <div className={styles.heroInner}>
             <div className={styles.heroCopy}>
-              <span className={styles.eyebrow}>
+              <span className={`${styles.eyebrow} ${styles.onDark}`}>
                 <span className={styles.eyebrowDot} aria-hidden="true" />
                 Inteligência territorial para gestão municipal
               </span>
