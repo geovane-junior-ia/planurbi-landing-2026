@@ -93,12 +93,29 @@
   transition: opacity 0.3s ease;
 }
 
+.realizacaoColumn .logoWrapper img {
+  width: 180px;
+}
+
 .fepesaColumn .logoWrapper img {
   filter: brightness(0) invert(1);
 }
 
 .logoWrapper img:hover {
   opacity: 1;
+}
+
+.placeholderInfo {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(232, 212, 185, 0.08);
+  border: 1px dashed rgba(232, 212, 185, 0.32);
+  color: rgba(232, 212, 185, 0.7) !important;
+  font-size: 0.82rem !important;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  width: fit-content;
 }
 
 .contactInfo {

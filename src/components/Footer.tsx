@@ -12,8 +12,23 @@ export function Footer() {
         </div>
 
         <div className={styles.realizacaoColumn}>
-          <h4 className={styles.footerTitle}>PlanUrbi</h4>
-          <p>Planejamento urbano, dados, legislação e tecnologia para gestão pública municipal.</p>
+          <div className={styles.logoWrapper}>
+            <Image
+              src="/logo-planurbi-horizontal.png"
+              alt="Logo PlanUrbi"
+              width={1920}
+              height={586}
+            />
+          </div>
+          <div className={styles.contactInfo}>
+            <p className={styles.placeholderInfo}>Endereço em breve</p>
+            <p className={styles.placeholderInfo}>Telefone em breve</p>
+            <p>
+              <a href="https://www.planurbi.com.br" target="_blank" rel="noreferrer">
+                www.planurbi.com.br
+              </a>
+            </p>
+          </div>
         </div>
 
         <div className={styles.fepesaColumn}>
@@ -24,7 +39,7 @@ export function Footer() {
             <p>Rua Aminadab Valente, 59 - Trapiche da Barra - Maceió/AL</p>
             <p>(82) 3223-5847</p>
             <p>
-              <a href="https://fepesa.org.br" target="_blank">
+              <a href="https://fepesa.org.br" target="_blank" rel="noreferrer">
                 www.fepesa.org.br
               </a>
             </p>
