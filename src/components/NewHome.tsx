@@ -53,6 +53,7 @@ const aboutValues = [
 
 const solutions = [
   {
+    slug: "planejamento-territorial",
     axis: "Eixo 01",
     title: "Planejamento Territorial e Ordenamento Urbano",
     description:
@@ -60,8 +61,21 @@ const solutions = [
     pills: ["Plano Diretor", "Cód. Edificações", "Cód. Posturas", "EIV"],
     image: "/planurbi-visuals/municipal-diagnostic.png",
     alt: "Diagnóstico municipal com base territorial",
+    detail: {
+      lead:
+        "Estruturamos o conjunto de instrumentos urbanísticos que organizam o crescimento do município e dão segurança jurídica para gestores, técnicos e cidadãos.",
+      products: [
+        "Plano Diretor Municipal",
+        "Código de Edificações",
+        "Código de Posturas Urbanas",
+        "Código de Meio Ambiente",
+        "Estudo de Impacto de Vizinhança (EIV)",
+      ],
+      legalBase: "Estatuto da Cidade (Lei 10.257/2001), Lei do Parcelamento do Solo Urbano e legislações municipais correlatas.",
+    },
   },
   {
+    slug: "habitacao-regularizacao",
     axis: "Eixo 02",
     title: "Habitação e Regularização Fundiária",
     description:
@@ -69,17 +83,41 @@ const solutions = [
     pills: ["REURB", "PLHIS", "Assentamentos"],
     image: "/planurbi-visuals/housing-regularization.png",
     alt: "Regularização fundiária e habitação",
+    detail: {
+      lead:
+        "Organizamos territórios consolidados, qualificamos políticas habitacionais e ampliamos a inclusão urbana com instrumentos legais aplicáveis.",
+      products: [
+        "Regularização Fundiária Urbana (REURB)",
+        "Plano Local de Habitação de Interesse Social (PLHIS)",
+        "Diagnóstico habitacional municipal",
+        "Cadastro de assentamentos precários",
+      ],
+      legalBase: "Lei 13.465/2017 (REURB), Estatuto da Cidade e PNH.",
+    },
   },
   {
+    slug: "mobilidade",
     axis: "Eixo 03",
-    title: "Mobilidade e Desenvolvimento Setorial",
+    title: "Mobilidade e Desenvolvimento Urbano",
     description:
       "Diagnósticos e diretrizes para transporte, circulação e projetos urbanos articulados às necessidades locais.",
-    pills: ["Plano de Mobilidade", "PDITS", "Diretrizes urbanas"],
+    pills: ["Plano de Mobilidade", "Diretrizes urbanas", "Centralidades"],
     image: "/planurbi-visuals/mobility-development.png",
     alt: "Mobilidade e desenvolvimento urbano",
+    detail: {
+      lead:
+        "Apoiamos municípios na construção de políticas de mobilidade integradas ao planejamento territorial e ao desenvolvimento local.",
+      products: [
+        "Plano de Mobilidade Urbana",
+        "Diretrizes de circulação e acessibilidade",
+        "Estudos de centralidades urbanas",
+        "Projetos urbanos setoriais",
+      ],
+      legalBase: "Lei 12.587/2012 (Política Nacional de Mobilidade Urbana).",
+    },
   },
   {
+    slug: "dados-inteligencia",
     axis: "Eixo 04",
     title: "Dados, Inteligência Territorial e Geotecnologias",
     description:
@@ -87,8 +125,20 @@ const solutions = [
     pills: ["CTM", "Geoprocessamento", "Painéis"],
     image: "/planurbi-visuals/geotech-layers.png",
     alt: "Camadas geotecnológicas e dados territoriais",
+    detail: {
+      lead:
+        "Transformamos dados dispersos em leitura territorial aplicável: bases, mapas e painéis que orientam decisão e fiscalização.",
+      products: [
+        "Cadastro Territorial Multifinalitário (CTM)",
+        "Mapeamento georreferenciado do território",
+        "Diagnóstico Inteligente do Município",
+        "Painéis de indicadores territoriais",
+      ],
+      legalBase: "Portaria MCidades 511/2009 (Diretrizes para o CTM) e legislações tributárias municipais.",
+    },
   },
   {
+    slug: "gestao-implementacao",
     axis: "Eixo 05",
     title: "Gestão e Implementação do Planejamento",
     description:
@@ -96,15 +146,38 @@ const solutions = [
     pills: ["Capacitação", "Apoio técnico", "Monitoramento"],
     image: "/planurbi-visuals/participatory-workshop.png",
     alt: "Oficinas participativas e gestão",
+    detail: {
+      lead:
+        "Acompanhamos o município depois da entrega: instalamos rotinas, capacitamos equipes e monitoramos indicadores para que o planejamento vire prática.",
+      products: [
+        "Apoio técnico municipal continuado",
+        "Capacitação de equipes técnicas",
+        "Termos de referência e editais",
+        "Monitoramento e indicadores de acompanhamento",
+      ],
+      legalBase: "Estatuto da Cidade e marcos regulatórios setoriais aplicáveis.",
+    },
   },
   {
-    axis: "Diagnóstico",
-    title: "Diagnóstico personalizado para o seu município",
+    slug: "turismo",
+    axis: "Eixo 06",
+    title: "Turismo e Desenvolvimento Local",
     description:
-      "Uma leitura inicial para identificar prioridades, maturidade territorial e caminhos mais aderentes ao contexto local.",
-    pills: ["Leitura inicial", "Escopo estratégico", "Priorização"],
-    image: "/planurbi-visuals/territorial-intelligence.png",
-    alt: "Inteligência territorial aplicada",
+      "Planejamento turístico integrado ao território, valorizando vocação local e fortalecendo a economia do município.",
+    pills: ["PDITS", "Planejamento turístico", "Desenvolvimento local"],
+    image: "/planurbi-visuals/mobility-development.png",
+    alt: "Turismo e desenvolvimento local",
+    detail: {
+      lead:
+        "Estruturamos planos e diretrizes para municípios que enxergam o turismo como vetor de desenvolvimento integrado ao planejamento urbano e à identidade local.",
+      products: [
+        "Plano de Desenvolvimento Integrado do Turismo Sustentável (PDITS)",
+        "Planejamento turístico municipal",
+        "Diretrizes de uso e ocupação para destinos turísticos",
+        "Articulação com cadeias produtivas locais",
+      ],
+      legalBase: "Lei Geral do Turismo (Lei 11.771/2008) e Plano Nacional de Turismo.",
+    },
   },
 ];
 
@@ -221,6 +294,29 @@ const competencies = [
   "Gestão, implementação e capacitação",
 ];
 
+const team = [
+  {
+    role: "Coordenação Técnica",
+    name: "Em breve",
+    formation: "Arquitetura e Urbanismo · Planejamento Urbano",
+  },
+  {
+    role: "Planejamento Urbano e Mobilidade",
+    name: "Em breve",
+    formation: "Engenharia Civil · Mobilidade Urbana",
+  },
+  {
+    role: "Geotecnologias e CTM",
+    name: "Em breve",
+    formation: "Geografia · Geoprocessamento",
+  },
+  {
+    role: "Habitação e Regularização",
+    name: "Em breve",
+    formation: "Direito Urbanístico · REURB",
+  },
+];
+
 const insights = [
   {
     category: "Guia técnico",
@@ -250,6 +346,7 @@ const demandTypes = [
   "CTM / Geotecnologias",
   "REURB e habitação",
   "Mobilidade urbana",
+  "Turismo",
   "Legislação urbanística",
   "Diagnóstico territorial inicial",
 ];
@@ -284,7 +381,7 @@ export function NewHome() {
                 Planejamento urbano <em>inteligente</em> para transformar municípios.
               </h1>
               <p>
-                A PlanUrbi integra dados, geotecnologias, legislação urbanística e participação social
+                O PlanUrbi integra dados, geotecnologias, legislação urbanística e participação social
                 para transformar o território em uma base real de gestão pública eficiente, transparente e aplicável.
               </p>
               <div className={styles.heroActions}>
@@ -327,7 +424,7 @@ export function NewHome() {
                   <span>de uma metodologia transparente, técnica e participativa</span>
                 </div>
                 <div className={styles.metric}>
-                  <strong>2 casos</strong>
+                  <strong>2 projetos</strong>
                   <span>como vitrine de articulação entre dados, planejamento e gestão</span>
                 </div>
               </div>
@@ -412,6 +509,54 @@ export function NewHome() {
         </div>
       </section>
 
+      {/* ===== TEAM ===== */}
+      <section className={styles.section} id="equipe" aria-label="Equipe técnica">
+        <div className={styles.container}>
+          <div className={styles.sectionHead}>
+            <div>
+              <span className={styles.eyebrow}>
+                <span className={styles.eyebrowDot} aria-hidden="true" />
+                Equipe técnica
+              </span>
+              <h2>Multidisciplinaridade aplicada ao território.</h2>
+            </div>
+            <p>
+              A equipe do PlanUrbi reúne formação técnica e experiência institucional para
+              traduzir complexidade urbanística em ações concretas para o município.
+            </p>
+          </div>
+
+          <div className={styles.teamGrid}>
+            {team.map((member) => (
+              <article className={styles.teamCard} key={member.role}>
+                <div className={styles.teamAvatar} aria-hidden="true">
+                  <svg
+                    viewBox="0 0 80 80"
+                    width="100%"
+                    height="100%"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="40" cy="32" r="14" fill="rgba(89, 77, 70, 0.18)" />
+                    <path
+                      d="M14 70c2-12 13-20 26-20s24 8 26 20"
+                      fill="rgba(89, 77, 70, 0.18)"
+                    />
+                  </svg>
+                </div>
+                <span className={styles.teamRole}>{member.role}</span>
+                <strong className={styles.teamName}>{member.name}</strong>
+                <span className={styles.teamFormation}>{member.formation}</span>
+              </article>
+            ))}
+          </div>
+
+          <p className={styles.teamFootnote}>
+            Composição e dados detalhados de cada profissional serão divulgados em breve.
+          </p>
+        </div>
+      </section>
+
       {/* ===== SOLUTIONS ===== */}
       <section className={`${styles.section} ${styles.sectionStone}`} id="solucoes" aria-label="Soluções">
         <div className={styles.container}>
@@ -431,7 +576,12 @@ export function NewHome() {
 
           <div className={styles.solutionsGrid}>
             {solutions.map((solution) => (
-              <article className={styles.solutionCard} key={solution.title}>
+              <Link
+                href={`#detalhe-${solution.slug}`}
+                className={styles.solutionCard}
+                key={solution.slug}
+                aria-label={`Ver detalhes de ${solution.title}`}
+              >
                 <div className={styles.solutionImage}>
                   <span className={styles.solutionAxis}>{solution.axis}</span>
                   <Image src={solution.image} alt={solution.alt} width={560} height={350} />
@@ -446,6 +596,72 @@ export function NewHome() {
                       </span>
                     ))}
                   </div>
+                  <span className={styles.solutionMoreLink}>
+                    Saiba mais <span aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== SOLUTIONS DETAIL ===== */}
+      <section className={styles.section} aria-label="Detalhes das soluções">
+        <div className={styles.container}>
+          <div className={styles.sectionHead}>
+            <div>
+              <span className={styles.eyebrow}>
+                <span className={styles.eyebrowDot} aria-hidden="true" />
+                Detalhes das soluções
+              </span>
+              <h2>Cada eixo de atuação, em profundidade.</h2>
+            </div>
+            <p>
+              Para cada frente de trabalho, apresentamos a abordagem do PlanUrbi, os produtos
+              entregáveis e a base legal que sustenta a atuação.
+            </p>
+          </div>
+
+          <div className={styles.solutionDetailList}>
+            {solutions.map((solution, index) => (
+              <article
+                key={solution.slug}
+                id={`detalhe-${solution.slug}`}
+                className={`${styles.solutionDetailCard} ${
+                  index % 2 === 1 ? styles.solutionDetailReverse : ""
+                }`}
+              >
+                <div className={styles.solutionDetailMedia}>
+                  <span className={styles.solutionAxis}>{solution.axis}</span>
+                  <Image
+                    src={solution.image}
+                    alt={solution.alt}
+                    width={700}
+                    height={460}
+                  />
+                </div>
+                <div className={styles.solutionDetailBody}>
+                  <h3>{solution.title}</h3>
+                  <p className={styles.solutionDetailLead}>{solution.detail.lead}</p>
+
+                  <div className={styles.solutionDetailBlock}>
+                    <span className={styles.solutionDetailLabel}>Produtos & entregáveis</span>
+                    <ul>
+                      {solution.detail.products.map((product) => (
+                        <li key={product}>{product}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className={styles.solutionDetailBlock}>
+                    <span className={styles.solutionDetailLabel}>Base legal</span>
+                    <p>{solution.detail.legalBase}</p>
+                  </div>
+
+                  <Link href="#contato" className={`${styles.btn} ${styles.btnSolidGreen}`}>
+                    Solicitar diagnóstico nesse eixo
+                  </Link>
                 </div>
               </article>
             ))}
@@ -465,8 +681,8 @@ export function NewHome() {
               <h2>Seu município precisa de quê agora?</h2>
             </div>
             <p>
-              Em vez de listar problemas, conduzimos o gestor a se reconhecer na dor — e seguir para uma
-              próxima ação clara. Marque o que ressoa com a sua realidade.
+              Identifique o desafio do seu município abaixo e fale com a nossa equipe para
+              receber um diagnóstico personalizado e o próximo passo concreto.
             </p>
           </div>
 
@@ -641,19 +857,29 @@ export function NewHome() {
 
           <div className={styles.insightsGrid}>
             {insights.map((insight) => (
-              <Link href="#contato" className={styles.insightCard} key={insight.title}>
+              <article
+                className={`${styles.insightCard} ${styles.insightCardDisabled}`}
+                key={insight.title}
+                aria-label={`${insight.title} — em breve`}
+              >
                 <div className={styles.insightImage}>
                   <span className={styles.insightCategory}>{insight.category}</span>
+                  <span className={styles.insightSoon}>Em breve</span>
                   <Image src={insight.image} alt="" width={560} height={320} />
                 </div>
                 <div className={styles.insightBody}>
                   <h3>{insight.title}</h3>
                   <p>{insight.description}</p>
-                  <span className={styles.insightCta}>Ler conteúdo</span>
+                  <span className={styles.insightCtaDisabled}>Em breve</span>
                 </div>
-              </Link>
+              </article>
             ))}
           </div>
+
+          <p className={styles.insightsFootnote}>
+            Estamos preparando uma série de materiais técnicos para a gestão municipal.
+            Para receber em primeira mão, <a href="#contato">fale com a equipe</a>.
+          </p>
         </div>
       </section>
 
