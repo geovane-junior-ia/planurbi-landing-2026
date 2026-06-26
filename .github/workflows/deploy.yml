@@ -48,6 +48,8 @@ jobs:
           echo "FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}" >> .env.production
           echo "FIREBASE_CLIENT_EMAIL=${{ secrets.FIREBASE_CLIENT_EMAIL }}" >> .env.production
           echo "FIREBASE_PRIVATE_KEY=${{ secrets.FIREBASE_PRIVATE_KEY }}" >> .env.production
+          echo "RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}" >> .env.production
+          echo "CONTATO_EMAIL_TO=${{ secrets.CONTATO_EMAIL_TO }}" >> .env.production
 
       - name: Build images
         run: docker compose -f dev.compose.yml build
