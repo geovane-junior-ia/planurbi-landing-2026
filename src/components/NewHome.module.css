@@ -1633,6 +1633,37 @@
   margin-top: 14px;
 }
 
+.formFeedback {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.formFeedbackSuccess {
+  background: rgba(28, 139, 125, 0.12);
+  border: 1px solid var(--planurbi-green-500);
+  color: var(--planurbi-green-900);
+}
+
+.formFeedbackError {
+  background: rgba(176, 58, 46, 0.1);
+  border: 1px solid #b03a2e;
+  color: #8c2c22;
+}
+
+.formFeedbackError a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.formSubmit:disabled {
+  opacity: 0.65;
+  cursor: progress;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1180px) {
   .heroInner {

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, type FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./NewHome.module.css";
@@ -351,7 +352,45 @@ const demandTypes = [
   "Diagnóstico territorial inicial",
 ];
 
+type ContactStatus = "idle" | "sending" | "success" | "error";
+
 export function NewHome() {
+  const [contactStatus, setContactStatus] = useState<ContactStatus>("idle");
+
+  async function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const payload = {
+      nome: String(data.get("nome") || "").trim(),
+      municipio: String(data.get("municipio") || "").trim(),
+      cargo: String(data.get("cargo") || "").trim(),
+      email: String(data.get("email") || "").trim(),
+      tipo: String(data.get("tipo") || "").trim(),
+      mensagem: String(data.get("mensagem") || "").trim(),
+    };
+
+    setContactStatus("sending");
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
+    try {
+      const res = await fetch("/api/contato", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        signal: controller.signal,
+      });
+      if (!res.ok) throw new Error("Falha ao enviar contato");
+      form.reset();
+      setContactStatus("success");
+    } catch (error) {
+      console.error(error);
+      setContactStatus("error");
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
   return (
     <main className={styles.page} id="top">
       {/* ===== HERO ===== */}
@@ -928,13 +967,7 @@ export function NewHome() {
               </div>
             </article>
 
-            <form
-              className={styles.contactForm}
-              onSubmit={(event) => {
-                event.preventDefault();
-                alert("MVP: este formulário ainda não está integrado. Em breve, será conectado ao CRM.");
-              }}
-            >
+            <form className={styles.contactForm} onSubmit={handleContactSubmit}>
               <div className={styles.contactFormHead}>
                 <span className={styles.eyebrow}>
                   <span className={styles.eyebrowDot} aria-hidden="true" />
@@ -980,9 +1013,24 @@ export function NewHome() {
                   />
                 </div>
               </div>
-              <button className={`${styles.btn} ${styles.btnSolidGreen} ${styles.formSubmit}`} type="submit">
-                Enviar solicitação
+              <button
+                className={`${styles.btn} ${styles.btnSolidGreen} ${styles.formSubmit}`}
+                type="submit"
+                disabled={contactStatus === "sending"}
+              >
+                {contactStatus === "sending" ? "Enviando..." : "Enviar solicitação"}
               </button>
+              {contactStatus === "success" && (
+                <p className={`${styles.formFeedback} ${styles.formFeedbackSuccess}`} role="status">
+                  Solicitação enviada! A equipe do PlanUrbi retorna em até 2 dias úteis.
+                </p>
+              )}
+              {contactStatus === "error" && (
+                <p className={`${styles.formFeedback} ${styles.formFeedbackError}`} role="alert">
+                  Não foi possível enviar agora. Tente novamente ou escreva para{" "}
+                  <a href="mailto:projeto@planurbi.com.br">projeto@planurbi.com.br</a>.
+                </p>
+              )}
               <p className={styles.formNote}>
                 Ao enviar, você concorda com o uso dos dados apenas para retorno da equipe PlanUrbi.
               </p>
