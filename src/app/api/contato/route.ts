@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/lib/firebaseClient';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { getAdminDb, admin } from '@/lib/firebaseAdmin';
 
 type ContactPayload = {
   nome: string;
@@ -60,7 +59,11 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const docRef = await addDoc(collection(db, 'contatos-landing'), {
+    // Admin SDK: escrita server-side que ignora as Security Rules do
+    // Firestore (nao precisa liberar a colecao por regra). Usa as
+    // credenciais de service-account (FIREBASE_PROJECT_ID/CLIENT_EMAIL/
+    // PRIVATE_KEY) — as mesmas ja configuradas no deploy de producao.
+    const docRef = await getAdminDb().collection('contatos-landing').add({
       nome,
       municipio,
       cargo: cargo || '',
@@ -68,7 +71,7 @@ export async function POST(req: NextRequest) {
       tipo: tipo || '',
       mensagem: mensagem || '',
       origem: 'landing-2026',
-      createdAt: serverTimestamp(),
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
       status: 'novo',
     });
 
