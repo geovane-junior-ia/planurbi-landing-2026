@@ -21,8 +21,19 @@ export function Footer() {
             />
           </div>
           <div className={styles.contactInfo}>
-            <p className={styles.placeholderInfo}>Endereço em breve</p>
-            <p className={styles.placeholderInfo}>Telefone em breve</p>
+            <p>
+              <a href="mailto:contato@planurbi.com.br">contato@planurbi.com.br</a>
+            </p>
+            <p>
+              <a
+                href="https://wa.me/5582993261747"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Falar com PlanUrbi no WhatsApp"
+              >
+                (82) 99326-1747
+              </a>
+            </p>
             <p>
               <a href="https://www.planurbi.com.br" target="_blank" rel="noreferrer">
                 www.planurbi.com.br
