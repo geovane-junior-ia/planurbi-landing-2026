@@ -303,6 +303,7 @@ type TeamMember = {
   photo: string;
   lattes?: string;
   linkedin?: string;
+  orcid?: string;
 };
 
 const team: TeamMember[] = [
@@ -327,12 +328,14 @@ const team: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/rute-barbosa-7b434975",
   },
   {
-    slug: "geovane",
-    name: "Geovane Luis Gomes Júnior",
-    role: "Arquiteto de Soluções Cognitivas",
+    slug: "raquel",
+    name: "Raquel da Silva Cabral",
+    role: "Departamento de Tecnologia — PlanUrbi",
     formation:
-      "Formação em Ciências da Computação. 30+ anos em arquitetura de sistemas, IA generativa e desenvolvimento full-stack.",
-    photo: "/equipe/geovane.jpg",
+      "Doutora em Engenharia Elétrica. Mestre em Modelagem Computacional do Conhecimento.",
+    photo: "/equipe/raquel.webp",
+    lattes: "http://lattes.cnpq.br/0319343616289472",
+    orcid: "https://orcid.org/0000-0001-6362-1662",
   },
   {
     slug: "mariana",
@@ -406,6 +409,14 @@ const team: TeamMember[] = [
     photo: "/equipe/rafael.jpg",
     lattes: "http://lattes.cnpq.br/5617812876092206",
     linkedin: "https://www.linkedin.com/in/rafael-augusto-92563b25",
+  },
+  {
+    slug: "geovane",
+    name: "Geovane Luis Gomes Júnior",
+    role: "Arquiteto de Soluções Cognitivas",
+    formation:
+      "Formação em Ciências da Computação. 30+ anos em arquitetura de sistemas, IA generativa e desenvolvimento full-stack.",
+    photo: "/equipe/geovane.jpg",
   },
 ];
 
@@ -699,7 +710,7 @@ export function NewHome() {
                 <span className={styles.teamRole}>{member.role}</span>
                 <strong className={styles.teamName}>{member.name}</strong>
                 <span className={styles.teamFormation}>{member.formation}</span>
-                {(member.lattes || member.linkedin) && (
+                {(member.lattes || member.linkedin || member.orcid) && (
                   <div className={styles.teamLinks}>
                     {member.lattes && (
                       <Link
@@ -723,6 +734,18 @@ export function NewHome() {
                       >
                         <i className="bx bxl-linkedin" aria-hidden="true" />
                         <span>LinkedIn</span>
+                      </Link>
+                    )}
+                    {member.orcid && (
+                      <Link
+                        href={member.orcid}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.teamLink}
+                        aria-label={`ORCID de ${member.name}`}
+                      >
+                        <i className="bx bx-id-card" aria-hidden="true" />
+                        <span>ORCID</span>
                       </Link>
                     )}
                   </div>
