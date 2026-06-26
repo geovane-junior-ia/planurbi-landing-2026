@@ -295,50 +295,170 @@ const competencies = [
   "Gestão, implementação e capacitação",
 ];
 
-const team = [
+type TeamMember = {
+  slug: string;
+  name: string;
+  role: string;
+  formation: string;
+  photo: string;
+  lattes?: string;
+  linkedin?: string;
+};
+
+const team: TeamMember[] = [
   {
-    role: "Coordenação Técnica",
-    name: "Em breve",
-    formation: "Arquitetura e Urbanismo · Planejamento Urbano",
+    slug: "melissa",
+    name: "Melissa Mota Alcides",
+    role: "Coordenadora Técnica",
+    formation:
+      "Doutora em Arquitetura e Urbanismo. Mestre em Desenvolvimento e Meio Ambiente.",
+    photo: "/equipe/melissa.jpg",
+    lattes: "http://lattes.cnpq.br/9108718376041605",
+    linkedin: "https://www.linkedin.com/in/melissa-mota-71141a97",
   },
   {
-    role: "Planejamento Urbano e Mobilidade",
-    name: "Em breve",
-    formation: "Engenharia Civil · Mobilidade Urbana",
+    slug: "rute",
+    name: "Rute Ferreira Barbosa",
+    role: "Coordenadora de Geoprocessamento",
+    formation:
+      "Doutora e Mestre em Arqueologia. Pós-graduanda em Urbanismo, Futuro das Cidades e Planejamento Inteligente e Impactos Socioambientais.",
+    photo: "/equipe/rute.jpg",
+    lattes: "http://lattes.cnpq.br/0238521609998525",
+    linkedin: "https://www.linkedin.com/in/rute-barbosa-7b434975",
   },
   {
-    role: "Geotecnologias e CTM",
-    name: "Em breve",
-    formation: "Geografia · Geoprocessamento",
+    slug: "geovane",
+    name: "Geovane Luis Gomes Júnior",
+    role: "Arquiteto de Soluções Cognitivas",
+    formation:
+      "Formação em Ciências da Computação. 30+ anos em arquitetura de sistemas, IA generativa e desenvolvimento full-stack.",
+    photo: "/equipe/geovane.jpg",
   },
   {
-    role: "Habitação e Regularização",
-    name: "Em breve",
-    formation: "Direito Urbanístico · REURB",
+    slug: "mariana",
+    name: "Mariana Oliveira Ribeiro",
+    role: "Arquiteta e Urbanista",
+    formation: "Graduada em Arquitetura e Urbanismo pela UFAL.",
+    photo: "/equipe/mariana.png",
+    lattes: "http://lattes.cnpq.br/5983774147051032",
+    linkedin: "https://www.linkedin.com/in/mariana-oliveira-ribeiro-6aab4133/",
+  },
+  {
+    slug: "jailson",
+    name: "Jailson Sandes Barbosa de Oliveira",
+    role: "Geógrafo",
+    formation: "Bacharel em Geografia pela UFAL.",
+    photo: "/equipe/jailson.png",
+    lattes: "http://lattes.cnpq.br/0501707690813876",
+    linkedin: "https://www.linkedin.com/in/jailson-sandes-293a9481",
+  },
+  {
+    slug: "karina",
+    name: "Karina Mendonça Tenório de Magalhães Oliveira",
+    role: "Especialista em Planejamento Territorial e Urbano",
+    formation:
+      "Doutoranda em Arquitetura e Urbanismo. Mestre em Dinâmicas do Espaço Habitado.",
+    photo: "/equipe/karina.png",
+    lattes: "https://lattes.cnpq.br/8811582595843193",
+    linkedin: "https://www.linkedin.com/in/karina-tenório",
+  },
+  {
+    slug: "pablo",
+    name: "Pablo Peixoto de Lima",
+    role: "Arquiteto Urbanista",
+    formation: "Graduado em Arquitetura e Urbanismo.",
+    photo: "/equipe/pablo.jpg",
+    lattes: "http://lattes.cnpq.br/7384910380936944",
+    linkedin: "https://www.linkedin.com/in/pabloplima",
+  },
+  {
+    slug: "mayara",
+    name: "Mayara Marinho de Santana",
+    role: "Geógrafa",
+    formation:
+      "Bacharel em Geografia pela UFAL. Mestranda em Geografia — Dinâmica Socioambiental e Geoprocessamento.",
+    photo: "/equipe/mayara.jpg",
+    lattes: "https://lattes.cnpq.br/3789874613458708",
+    linkedin: "https://www.linkedin.com/in/mayara-marinho-899792340/",
+  },
+  {
+    slug: "ricardo",
+    name: "Ricardo Antonio de Barros Wanderley",
+    role: "Coordenador Jurídico",
+    formation:
+      "Advogado. Mestrando em Administração Pública e Governo pela Fundação Getúlio Vargas.",
+    photo: "/equipe/ricardo.jpg",
+    lattes: "http://lattes.cnpq.br/1109263688203010",
+  },
+  {
+    slug: "charles",
+    name: "Charles Alves Silva",
+    role: "Coordenador Estratégico",
+    formation: "Advogado, consultor e graduado em Gestão de Pessoas.",
+    photo: "/equipe/charles.jpg",
+  },
+  {
+    slug: "rafael",
+    name: "Rafael Augusto Coelho de Lima",
+    role: "Administrador",
+    formation:
+      "Graduado em Administração. MBA em Perícia, Auditoria e Gestão Ambiental.",
+    photo: "/equipe/rafael.jpg",
+    lattes: "http://lattes.cnpq.br/5617812876092206",
+    linkedin: "https://www.linkedin.com/in/rafael-augusto-92563b25",
   },
 ];
 
 const insights = [
   {
+    slug: "plano-diretor",
     category: "Guia técnico",
     title: "Quando revisar o Plano Diretor?",
-    description:
-      "Entenda os sinais técnicos e legais que indicam a hora de atualizar o principal instrumento urbano municipal.",
+    summary:
+      "Sinais técnicos e legais que indicam a hora de atualizar o principal instrumento urbano municipal.",
+    body:
+      "O Plano Diretor deve ser elaborado ou revisado sempre que o município precisar atualizar sua visão de futuro, organizar o crescimento urbano e rural e fortalecer os instrumentos de planejamento territorial. A revisão é especialmente importante diante de transformações como expansão urbana acelerada, novos empreendimentos, mudanças econômicas e demográficas, aumento de riscos ambientais e climáticos, pressões sobre infraestrutura e serviços públicos ou alterações relevantes na legislação. Além das situações previstas no Estatuto da Cidade, o município deve acompanhar permanentemente a efetividade de seu Plano Diretor, garantindo que suas diretrizes estejam alinhadas às necessidades da população, à proteção ambiental, à redução das desigualdades e à construção de um território mais equilibrado, resiliente e sustentável.",
     image: "/visual-diagnostico-territorial.svg",
   },
   {
+    slug: "ctm",
     category: "Inteligência territorial",
     title: "O que é Cadastro Territorial Multifinalitário?",
-    description:
+    summary:
       "Uma base integrada para modernizar a gestão territorial, tributária, ambiental e urbanística do município.",
+    body:
+      "O Cadastro Territorial Multifinalitário (CTM) é uma base integrada de informações sobre o território municipal, reunindo dados georreferenciados sobre imóveis, lotes, edificações, vias, infraestrutura, áreas públicas, equipamentos urbanos, limites administrativos, aspectos ambientais e outras características relevantes para a gestão da cidade. O CTM permite que o município conheça melhor seu território, qualifique a arrecadação, organize o uso e a ocupação do solo, apoie ações de regularização fundiária, planejamento urbano, mobilidade, habitação, meio ambiente, defesa civil e prestação de serviços públicos. Quando atualizado e integrado aos diferentes setores da administração, torna-se uma ferramenta estratégica para decisões da gestão municipal.",
     image: "/planurbi-visuals/geotech-layers.png",
   },
   {
+    slug: "reurb",
     category: "Gestão urbana",
     title: "Como a REURB apoia a gestão urbana?",
-    description:
-      "Mostra como a regularização pode fortalecer governança, organização territorial e ação institucional.",
+    summary:
+      "Como a regularização fundiária urbana fortalece governança, organização territorial e ação institucional.",
+    body:
+      "A Regularização Fundiária Urbana (REURB) apoia a gestão urbana ao integrar áreas informais à cidade formal, garantindo segurança jurídica para moradores, organizando o território e ampliando a capacidade do município de planejar e prestar serviços públicos. Por meio da identificação de ocupações, definição de limites, atualização cadastral e titulação dos imóveis, a REURB contribui para reduzir conflitos fundiários, orientar investimentos em infraestrutura, saneamento, mobilidade e equipamentos públicos.",
     image: "/visual-oficina-participativa.svg",
+  },
+  {
+    slug: "ods",
+    category: "Agenda 2030",
+    title: "PlanUrbi e os Objetivos de Desenvolvimento Sustentável",
+    summary:
+      "Como a atuação do PlanUrbi territorializa a Agenda 2030 nos municípios, com destaque para o ODS 11.",
+    body:
+      "O PlanUrbi contribui para a territorialização da Agenda 2030 nos municípios, com destaque para o ODS 11 — Cidades e Comunidades Sustentáveis. Ao integrar planejamento urbano, cadastro territorial multifinalitário, gestão fiscal, regulação do uso do solo, mobilidade, habitação, sustentabilidade ambiental e participação social, o programa também fortalece os ODS 1, 6, 8, 9, 10, 13, 15, 16 e 17, transformando dados e diretrizes em instrumentos concretos de gestão e desenvolvimento territorial.",
+    image: "/planurbi-visuals/territorial-intelligence.png",
+  },
+  {
+    slug: "inovacao",
+    category: "Inovação",
+    title: "Inovação como pilar do PlanUrbi",
+    summary:
+      "Tecnologia, dados e conhecimento técnico combinados para uma gestão urbana mais eficiente, transparente e orientada por evidências.",
+    body:
+      "A inovação é um dos pilares do PlanUrbi, ao combinar conhecimento técnico, tecnologia e integração de dados para apoiar uma gestão urbana mais eficiente, transparente e orientada por evidências. Por meio de ferramentas como bases georreferenciadas, cadastros territoriais multifinalitários, diagnósticos integrados, painéis de informação e soluções digitais de monitoramento, o PlanUrbi transforma informações dispersas em instrumentos práticos para a tomada de decisão. Essa abordagem permite que os municípios antecipem desafios, qualifiquem investimentos, melhorem a arrecadação, fortaleçam o planejamento territorial e construam políticas públicas mais conectadas às necessidades reais da população.",
+    image: "/planurbi-visuals/municipal-diagnostic.png",
   },
 ];
 
@@ -567,32 +687,49 @@ export function NewHome() {
 
           <div className={styles.teamGrid}>
             {team.map((member) => (
-              <article className={styles.teamCard} key={member.role}>
-                <div className={styles.teamAvatar} aria-hidden="true">
-                  <svg
-                    viewBox="0 0 80 80"
-                    width="100%"
-                    height="100%"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle cx="40" cy="32" r="14" fill="rgba(89, 77, 70, 0.18)" />
-                    <path
-                      d="M14 70c2-12 13-20 26-20s24 8 26 20"
-                      fill="rgba(89, 77, 70, 0.18)"
-                    />
-                  </svg>
+              <article className={styles.teamCard} key={member.slug}>
+                <div className={styles.teamPhoto}>
+                  <Image
+                    src={member.photo}
+                    alt={`Foto de ${member.name}`}
+                    width={192}
+                    height={192}
+                  />
                 </div>
                 <span className={styles.teamRole}>{member.role}</span>
                 <strong className={styles.teamName}>{member.name}</strong>
                 <span className={styles.teamFormation}>{member.formation}</span>
+                {(member.lattes || member.linkedin) && (
+                  <div className={styles.teamLinks}>
+                    {member.lattes && (
+                      <Link
+                        href={member.lattes}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.teamLink}
+                        aria-label={`Lattes de ${member.name}`}
+                      >
+                        <i className="bx bx-book-open" aria-hidden="true" />
+                        <span>Lattes</span>
+                      </Link>
+                    )}
+                    {member.linkedin && (
+                      <Link
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.teamLink}
+                        aria-label={`LinkedIn de ${member.name}`}
+                      >
+                        <i className="bx bxl-linkedin" aria-hidden="true" />
+                        <span>LinkedIn</span>
+                      </Link>
+                    )}
+                  </div>
+                )}
               </article>
             ))}
           </div>
-
-          <p className={styles.teamFootnote}>
-            Composição e dados detalhados de cada profissional serão divulgados em breve.
-          </p>
         </div>
       </section>
 
@@ -896,29 +1033,65 @@ export function NewHome() {
 
           <div className={styles.insightsGrid}>
             {insights.map((insight) => (
-              <article
-                className={`${styles.insightCard} ${styles.insightCardDisabled}`}
-                key={insight.title}
-                aria-label={`${insight.title} — em breve`}
+              <Link
+                href={`#artigo-${insight.slug}`}
+                className={styles.insightCard}
+                key={insight.slug}
+                aria-label={`Ler artigo: ${insight.title}`}
               >
                 <div className={styles.insightImage}>
                   <span className={styles.insightCategory}>{insight.category}</span>
-                  <span className={styles.insightSoon}>Em breve</span>
                   <Image src={insight.image} alt="" width={560} height={320} />
                 </div>
                 <div className={styles.insightBody}>
                   <h3>{insight.title}</h3>
-                  <p>{insight.description}</p>
-                  <span className={styles.insightCtaDisabled}>Em breve</span>
+                  <p>{insight.summary}</p>
+                  <span className={styles.insightCta}>Ler artigo</span>
                 </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== ARTICLES (artigos completos) ===== */}
+      <section
+        className={`${styles.section} ${styles.sectionStone}`}
+        aria-label="Artigos completos"
+      >
+        <div className={styles.container}>
+          <div className={styles.sectionHead}>
+            <div>
+              <span className={styles.eyebrow}>
+                <span className={styles.eyebrowDot} aria-hidden="true" />
+                Artigos completos
+              </span>
+              <h2>Conteúdos técnicos para apoiar a decisão municipal.</h2>
+            </div>
+            <p>
+              Materiais elaborados pela equipe do PlanUrbi para esclarecer instrumentos urbanísticos,
+              boas práticas de gestão territorial e os caminhos para municípios mais sustentáveis.
+            </p>
+          </div>
+
+          <div className={styles.articlesList}>
+            {insights.map((article) => (
+              <article
+                key={article.slug}
+                id={`artigo-${article.slug}`}
+                className={styles.articleCard}
+              >
+                <div className={styles.articleHeader}>
+                  <span className={styles.articleCategory}>{article.category}</span>
+                  <h3>{article.title}</h3>
+                </div>
+                <p className={styles.articleBody}>{article.body}</p>
+                <Link href="#contato" className={styles.articleCta}>
+                  Falar com a equipe sobre esse tema <span aria-hidden="true">→</span>
+                </Link>
               </article>
             ))}
           </div>
-
-          <p className={styles.insightsFootnote}>
-            Estamos preparando uma série de materiais técnicos para a gestão municipal.
-            Para receber em primeira mão, <a href="#contato">fale com a equipe</a>.
-          </p>
         </div>
       </section>
 
