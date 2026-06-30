@@ -94,7 +94,7 @@ export async function POST(req: NextRequest) {
         from,
         to,
         reply_to: email,
-        subject: `Novo contato da landing — ${municipio}`,
+        subject: `Novo contato do Formulário PlanUrbi — ${municipio}`,
         html: buildEmailBody(payload),
       }),
     });
