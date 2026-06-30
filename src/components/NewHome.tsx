@@ -420,7 +420,62 @@ const team: TeamMember[] = [
   },
 ];
 
+const coordinationSlugs = new Set(["melissa", "rute", "raquel"]);
+const coordinationTeam = team.filter((m) => coordinationSlugs.has(m.slug));
+const otherTeam = team.filter((m) => !coordinationSlugs.has(m.slug));
+
+type OdsItem = { id: number; label: string; color: string };
+
+const odsHighlight: OdsItem[] = [
+  { id: 11, label: "Cidades e Comunidades Sustentáveis", color: "#FD9D24" },
+];
+
+const odsSecondary: OdsItem[] = [
+  { id: 1, label: "Erradicação da Pobreza", color: "#E5243B" },
+  { id: 6, label: "Água Potável e Saneamento", color: "#26BDE2" },
+  { id: 8, label: "Trabalho Decente e Crescimento Econômico", color: "#A21942" },
+  { id: 9, label: "Indústria, Inovação e Infraestrutura", color: "#FD6925" },
+  { id: 10, label: "Redução das Desigualdades", color: "#DD1367" },
+  { id: 13, label: "Ação Contra a Mudança Global do Clima", color: "#3F7E44" },
+  { id: 15, label: "Vida Terrestre", color: "#56C02B" },
+  { id: 16, label: "Paz, Justiça e Instituições Eficazes", color: "#00689D" },
+  { id: 17, label: "Parcerias e Meios de Implementação", color: "#19486A" },
+];
+
+function OdsTile({ ods, size = "default" }: { ods: OdsItem; size?: "default" | "highlight" }) {
+  return (
+    <div
+      className={`${styles.odsTile} ${size === "highlight" ? styles.odsTileHighlight : ""}`}
+      style={{ background: ods.color }}
+      title={`ODS ${ods.id} — ${ods.label}`}
+    >
+      <span className={styles.odsTileNumber}>{ods.id}</span>
+      <span className={styles.odsTileLabel}>{ods.label}</span>
+    </div>
+  );
+}
+
 const insights = [
+  {
+    slug: "ods",
+    category: "Agenda 2030",
+    title: "PlanUrbi e os Objetivos de Desenvolvimento Sustentável",
+    summary:
+      "Como a atuação do PlanUrbi territorializa a Agenda 2030 nos municípios, com destaque para o ODS 11.",
+    body:
+      "O PlanUrbi contribui para a territorialização da Agenda 2030 nos municípios, com destaque para o ODS 11 — Cidades e Comunidades Sustentáveis. Ao integrar planejamento urbano, cadastro territorial multifinalitário, gestão fiscal, regulação do uso do solo, mobilidade, habitação, sustentabilidade ambiental e participação social, o programa também fortalece os ODS 1, 6, 8, 9, 10, 13, 15, 16 e 17, transformando dados e diretrizes em instrumentos concretos de gestão e desenvolvimento territorial.",
+    image: "/planurbi-visuals/territorial-intelligence.png",
+  },
+  {
+    slug: "inovacao",
+    category: "Inovação",
+    title: "Inovação como pilar do PlanUrbi",
+    summary:
+      "Tecnologia, dados e conhecimento técnico combinados para uma gestão urbana mais eficiente, transparente e orientada por evidências.",
+    body:
+      "A inovação é um dos pilares do PlanUrbi, ao combinar conhecimento técnico, tecnologia e integração de dados para apoiar uma gestão urbana mais eficiente, transparente e orientada por evidências. Por meio de ferramentas como bases georreferenciadas, cadastros territoriais multifinalitários, diagnósticos integrados, painéis de informação e soluções digitais de monitoramento, o PlanUrbi transforma informações dispersas em instrumentos práticos para a tomada de decisão. Essa abordagem permite que os municípios antecipem desafios, qualifiquem investimentos, melhorem a arrecadação, fortaleçam o planejamento territorial e construam políticas públicas mais conectadas às necessidades reais da população.",
+    image: "/planurbi-visuals/municipal-diagnostic.png",
+  },
   {
     slug: "plano-diretor",
     category: "Guia técnico",
@@ -451,26 +506,14 @@ const insights = [
       "A Regularização Fundiária Urbana (REURB) apoia a gestão urbana ao integrar áreas informais à cidade formal, garantindo segurança jurídica para moradores, organizando o território e ampliando a capacidade do município de planejar e prestar serviços públicos. Por meio da identificação de ocupações, definição de limites, atualização cadastral e titulação dos imóveis, a REURB contribui para reduzir conflitos fundiários, orientar investimentos em infraestrutura, saneamento, mobilidade e equipamentos públicos.",
     image: "/visual-oficina-participativa.svg",
   },
-  {
-    slug: "ods",
-    category: "Agenda 2030",
-    title: "PlanUrbi e os Objetivos de Desenvolvimento Sustentável",
-    summary:
-      "Como a atuação do PlanUrbi territorializa a Agenda 2030 nos municípios, com destaque para o ODS 11.",
-    body:
-      "O PlanUrbi contribui para a territorialização da Agenda 2030 nos municípios, com destaque para o ODS 11 — Cidades e Comunidades Sustentáveis. Ao integrar planejamento urbano, cadastro territorial multifinalitário, gestão fiscal, regulação do uso do solo, mobilidade, habitação, sustentabilidade ambiental e participação social, o programa também fortalece os ODS 1, 6, 8, 9, 10, 13, 15, 16 e 17, transformando dados e diretrizes em instrumentos concretos de gestão e desenvolvimento territorial.",
-    image: "/planurbi-visuals/territorial-intelligence.png",
-  },
-  {
-    slug: "inovacao",
-    category: "Inovação",
-    title: "Inovação como pilar do PlanUrbi",
-    summary:
-      "Tecnologia, dados e conhecimento técnico combinados para uma gestão urbana mais eficiente, transparente e orientada por evidências.",
-    body:
-      "A inovação é um dos pilares do PlanUrbi, ao combinar conhecimento técnico, tecnologia e integração de dados para apoiar uma gestão urbana mais eficiente, transparente e orientada por evidências. Por meio de ferramentas como bases georreferenciadas, cadastros territoriais multifinalitários, diagnósticos integrados, painéis de informação e soluções digitais de monitoramento, o PlanUrbi transforma informações dispersas em instrumentos práticos para a tomada de decisão. Essa abordagem permite que os municípios antecipem desafios, qualifiquem investimentos, melhorem a arrecadação, fortaleçam o planejamento territorial e construam políticas públicas mais conectadas às necessidades reais da população.",
-    image: "/planurbi-visuals/municipal-diagnostic.png",
-  },
+];
+
+const partners = [
+  { slug: "fepesa", name: "FEPESA", logo: "/logosExternas/logo-fepesa-placeholder.png", url: "https://fepesa.org.br" },
+  { slug: "ufal", name: "UFAL", logo: "", url: "https://ufal.br" },
+  { slug: "gioconda", name: "Laboratório Gioconda", logo: "", url: "" },
+  { slug: "bridge", name: "Bridge", logo: "", url: "" },
+  { slug: "oca", name: "OCA", logo: "", url: "" },
 ];
 
 const demandTypes = [
@@ -696,9 +739,12 @@ export function NewHome() {
             </p>
           </div>
 
-          <div className={styles.teamGrid}>
-            {team.map((member) => (
-              <article className={styles.teamCard} key={member.slug}>
+          {(() => {
+            const renderCard = (member: TeamMember, highlight: boolean) => (
+              <article
+                className={`${styles.teamCard} ${highlight ? styles.teamCardHighlight : ""}`}
+                key={member.slug}
+              >
                 <div className={styles.teamPhoto}>
                   <Image
                     src={member.photo}
@@ -751,8 +797,20 @@ export function NewHome() {
                   </div>
                 )}
               </article>
-            ))}
-          </div>
+            );
+            return (
+              <>
+                <div className={styles.teamCoordinationLabel}>Coordenação</div>
+                <div className={styles.teamGridCoordinations}>
+                  {coordinationTeam.map((m) => renderCard(m, true))}
+                </div>
+                <div className={styles.teamMembersLabel}>Equipe</div>
+                <div className={styles.teamGridMembers}>
+                  {otherTeam.map((m) => renderCard(m, false))}
+                </div>
+              </>
+            );
+          })()}
         </div>
       </section>
 
@@ -1109,11 +1167,79 @@ export function NewHome() {
                   <h3>{article.title}</h3>
                 </div>
                 <p className={styles.articleBody}>{article.body}</p>
-                <Link href="#contato" className={styles.articleCta}>
-                  Falar com a equipe sobre esse tema <span aria-hidden="true">→</span>
-                </Link>
+
+                {article.slug === "ods" && (
+                  <div className={styles.odsBlock} aria-label="Objetivos de Desenvolvimento Sustentável relacionados">
+                    <div className={styles.odsHighlightRow}>
+                      <span className={styles.odsBlockLabel}>Foco principal</span>
+                      <div className={styles.odsIconsRow}>
+                        {odsHighlight.map((ods) => (
+                          <OdsTile key={ods.id} ods={ods} size="highlight" />
+                        ))}
+                      </div>
+                    </div>
+                    <div className={styles.odsSecondaryRow}>
+                      <span className={styles.odsBlockLabel}>ODS também fortalecidos</span>
+                      <div className={styles.odsIconsGrid}>
+                        {odsSecondary.map((ods) => (
+                          <OdsTile key={ods.id} ods={ods} />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== PARTNERS ===== */}
+      <section className={styles.section} aria-label="Realização e parceiros">
+        <div className={styles.container}>
+          <div className={styles.sectionHead}>
+            <div>
+              <span className={styles.eyebrow}>
+                <span className={styles.eyebrowDot} aria-hidden="true" />
+                Realização e parceiros
+              </span>
+              <h2>Uma rede técnica e institucional que sustenta o programa.</h2>
+            </div>
+            <p>
+              O PlanUrbi é desenvolvido em colaboração com instituições de ensino, pesquisa e fomento
+              que ampliam a capacidade de atuação no território.
+            </p>
+          </div>
+
+          <div className={styles.partnersGrid}>
+            {partners.map((partner) => {
+              const inner = partner.logo ? (
+                <Image
+                  src={partner.logo}
+                  alt={`Logo ${partner.name}`}
+                  width={240}
+                  height={120}
+                />
+              ) : (
+                <span className={styles.partnerPlaceholder}>{partner.name}</span>
+              );
+              return partner.url ? (
+                <a
+                  key={partner.slug}
+                  href={partner.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.partnerCard}
+                  aria-label={partner.name}
+                >
+                  {inner}
+                </a>
+              ) : (
+                <div key={partner.slug} className={styles.partnerCard} title={partner.name}>
+                  {inner}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
