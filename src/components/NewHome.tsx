@@ -510,10 +510,10 @@ const insights = [
 
 const partners = [
   { slug: "fepesa", name: "FEPESA", logo: "/logosExternas/logo-fepesa-placeholder.png", url: "https://fepesa.org.br" },
-  { slug: "ufal", name: "UFAL", logo: "", url: "https://ufal.br" },
-  { slug: "gioconda", name: "Laboratório Gioconda", logo: "", url: "" },
-  { slug: "bridge", name: "Bridge", logo: "", url: "" },
-  { slug: "oca", name: "OCA", logo: "", url: "" },
+  { slug: "ufal", name: "UFAL", logo: "/parceiros/ufal.png", url: "https://ufal.br" },
+  { slug: "gioconda", name: "Laboratório Gioconda", logo: "/parceiros/gioconda.png", url: "" },
+  { slug: "bridge", name: "Bridge Soluções", logo: "/parceiros/bridge.png", url: "" },
+  { slug: "oca", name: "OCA", logo: "/parceiros/oca.jpg", url: "" },
 ];
 
 const demandTypes = [

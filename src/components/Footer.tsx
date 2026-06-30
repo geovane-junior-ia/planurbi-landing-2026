@@ -36,12 +36,11 @@ export function Footer() {
             </p>
             <p>
               <a
-                href="#"
-                className={styles.placeholderLink}
-                aria-disabled="true"
-                title="Instagram em breve"
+                href="https://www.instagram.com/planurbi_/"
+                target="_blank"
+                rel="noreferrer"
               >
-                <i className="bx bxl-instagram" aria-hidden="true" /> @planurbi (em breve)
+                <i className="bx bxl-instagram" aria-hidden="true" /> @planurbi_
               </a>
             </p>
           </div>
