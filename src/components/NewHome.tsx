@@ -443,18 +443,13 @@ const odsSecondary: OdsItem[] = [
 ];
 
 function OdsTile({ ods, size = "default" }: { ods: OdsItem; size?: "default" | "highlight" }) {
-  const dimensions = size === "highlight" ? 240 : 120;
   return (
     <div
       className={`${styles.odsTile} ${size === "highlight" ? styles.odsTileHighlight : ""}`}
       title={`ODS ${ods.id} — ${ods.label}`}
     >
-      <Image
-        src={`/ods/ods-${ods.id}.png`}
-        alt={`ODS ${ods.id} — ${ods.label}`}
-        width={dimensions}
-        height={dimensions}
-      />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={`/ods/ods-${ods.id}.svg`} alt={`ODS ${ods.id} — ${ods.label}`} loading="lazy" />
     </div>
   );
 }
