@@ -18,7 +18,7 @@ async function notificarEquipe(c: ContactPayload) {
   if (!apiKey) return;
 
   const from = process.env.CONTATO_EMAIL_FROM || 'PlanUrbi <onboarding@resend.dev>';
-  const to = process.env.CONTATO_EMAIL_TO || 'projeto@planurbi.com.br';
+  const to = process.env.CONTATO_EMAIL_TO || 'contato@planurbi.com.br';
 
   try {
     await fetch('https://api.resend.com/emails', {

@@ -1281,7 +1281,7 @@ export function NewHome() {
                   <div className={styles.contactStepContent}>
                     <strong>Canal direto</strong>
                     <span>
-                      <a href="mailto:projeto@planurbi.com.br">projeto@planurbi.com.br</a>
+                      <a href="mailto:contato@planurbi.com.br">contato@planurbi.com.br</a>
                     </span>
                   </div>
                 </div>
@@ -1349,7 +1349,7 @@ export function NewHome() {
               {contactStatus === "error" && (
                 <p className={`${styles.formFeedback} ${styles.formFeedbackError}`} role="alert">
                   Não foi possível enviar agora. Tente novamente ou escreva para{" "}
-                  <a href="mailto:projeto@planurbi.com.br">projeto@planurbi.com.br</a>.
+                  <a href="mailto:contato@planurbi.com.br">contato@planurbi.com.br</a>.
                 </p>
               )}
               <p className={styles.formNote}>

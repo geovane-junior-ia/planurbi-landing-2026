@@ -747,7 +747,7 @@
 }
 
 .odsHighlightRow {
-  margin-bottom: 24px;
+  margin-bottom: 36px;
 }
 
 .odsIconsRow {
@@ -759,8 +759,9 @@
 
 .odsIconsGrid {
   display: grid;
-  grid-template-columns: repeat(9, minmax(72px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 540px;
 }
 
 .odsTile {
@@ -1949,7 +1950,7 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .odsIconsGrid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .timeline {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2036,7 +2037,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .odsIconsGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .odsIconHighlight {
     width: 112px;

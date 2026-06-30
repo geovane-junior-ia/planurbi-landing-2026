@@ -149,7 +149,7 @@ export const defaultSiteContent: SiteContent = {
     },
   ],
   contact: {
-    email: "projeto@planurbi.com.br",
+    email: "contato@planurbi.com.br",
     phone: "",
     cta: "Solicite um diagnostico inicial",
   },
