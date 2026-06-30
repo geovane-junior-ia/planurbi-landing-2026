@@ -50,9 +50,6 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Link href="/#contato" className={styles.navCta}>
-            Solicitar diagnóstico
-          </Link>
         </nav>
 
         <button
@@ -70,9 +67,6 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Link href="/#contato" className={styles.mobileCta} onClick={toggleMenu}>
-            Solicitar diagnóstico
-          </Link>
         </nav>
       </div>
     </header>
