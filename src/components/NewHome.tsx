@@ -597,10 +597,7 @@ export function NewHome() {
                 para transformar o território em uma base real de gestão pública eficiente, transparente e aplicável.
               </p>
               <div className={styles.heroActions}>
-                <Link href="#contato" className={`${styles.btn} ${styles.btnPrimary}`}>
-                  Solicitar diagnóstico
-                </Link>
-                <Link href="#solucoes" className={`${styles.btn} ${styles.btnGhostDark}`}>
+                <Link href="#solucoes" className={`${styles.btn} ${styles.btnPrimary}`}>
                   Conhecer soluções
                 </Link>
               </div>
@@ -914,10 +911,6 @@ export function NewHome() {
                     <span className={styles.solutionDetailLabel}>Base legal</span>
                     <p>{solution.detail.legalBase}</p>
                   </div>
-
-                  <Link href="#contato" className={`${styles.btn} ${styles.btnSolidGreen}`}>
-                    Solicitar diagnóstico nesse eixo
-                  </Link>
                 </div>
               </article>
             ))}
