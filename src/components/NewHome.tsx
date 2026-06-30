@@ -512,7 +512,7 @@ const partners = [
   { slug: "ufal", name: "UFAL", logo: "/parceiros/ufal.png", url: "https://ufal.br" },
   { slug: "gioconda", name: "Laboratório Gioconda", logo: "/parceiros/gioconda.png", url: "" },
   { slug: "bridge", name: "Bridge Soluções", logo: "/parceiros/bridge.png", url: "" },
-  { slug: "oca", name: "OCA", logo: "/parceiros/oca.jpg", url: "" },
+  { slug: "oca", name: "OCA", logo: "/parceiros/oca.png", url: "" },
 ];
 
 const demandTypes = [
