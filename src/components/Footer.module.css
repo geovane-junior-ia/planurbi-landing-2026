@@ -122,10 +122,24 @@
 .contactInfo a {
   color: var(--planurbi-sand-300);
   transition: color 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
 }
 
 .contactInfo a:hover {
   color: var(--planurbi-sand-500);
+}
+
+.contactInfo a i {
+  font-size: 1rem;
+}
+
+.placeholderLink {
+  opacity: 0.55;
+  font-style: italic;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .copyRight {

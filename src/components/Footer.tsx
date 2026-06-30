@@ -7,7 +7,7 @@ export function Footer() {
       <div className={styles.container}>
         <div className={styles.mainContact}>
           <h3>
-            Fale com a gente: <a href="mailto:projeto@planurbi.com.br">projeto@planurbi.com.br</a>
+            Fale com a gente: <a href="#contato">preencha nosso formulário</a>
           </h3>
         </div>
 
@@ -31,12 +31,17 @@ export function Footer() {
                 rel="noreferrer"
                 aria-label="Falar com PlanUrbi no WhatsApp"
               >
-                (82) 99326-1747
+                <i className="bx bxl-whatsapp" aria-hidden="true" /> (82) 99326-1747
               </a>
             </p>
             <p>
-              <a href="https://www.planurbi.com.br" target="_blank" rel="noreferrer">
-                www.planurbi.com.br
+              <a
+                href="#"
+                className={styles.placeholderLink}
+                aria-disabled="true"
+                title="Instagram em breve"
+              >
+                <i className="bx bxl-instagram" aria-hidden="true" /> @planurbi (em breve)
               </a>
             </p>
           </div>
@@ -47,8 +52,25 @@ export function Footer() {
             <Image src="/logosExternas/logo-fepesa-placeholder.png" alt="Logo da FEPESA" width={180} height={75} />
           </div>
           <div className={styles.contactInfo}>
-            <p>Rua Aminadab Valente, 59 - Trapiche da Barra - Maceió/AL</p>
-            <p>(82) 3223-5847</p>
+            <p>
+              <a
+                href="https://wa.me/558232235847"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Falar com FEPESA no WhatsApp"
+              >
+                <i className="bx bxl-whatsapp" aria-hidden="true" /> (82) 3223-5847
+              </a>
+            </p>
+            <p>
+              <a
+                href="https://www.instagram.com/fepesa.al/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i className="bx bxl-instagram" aria-hidden="true" /> @fepesa.al
+              </a>
+            </p>
             <p>
               <a href="https://fepesa.org.br" target="_blank" rel="noreferrer">
                 www.fepesa.org.br
