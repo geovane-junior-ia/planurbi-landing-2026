@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAdminDb, admin } from '@/lib/firebaseAdmin';
 
 type ContactPayload = {
   nome: string;
@@ -10,47 +9,43 @@ type ContactPayload = {
   mensagem?: string;
 };
 
-// Notifica a equipe via Resend (REST, sem dependencia). So roda se
-// RESEND_API_KEY estiver configurada; qualquer falha aqui e' ignorada
-// para nunca derrubar o request — o contato ja foi salvo no Firestore.
-async function notificarEquipe(c: ContactPayload) {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) return;
+const escapeHtml = (raw: string) =>
+  raw
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 
-  const from = process.env.CONTATO_EMAIL_FROM || 'PlanUrbi <onboarding@resend.dev>';
-  const to = process.env.CONTATO_EMAIL_TO || 'contato@planurbi.com.br';
-
-  try {
-    await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from,
-        to,
-        reply_to: c.email,
-        subject: `Novo contato da landing — ${c.municipio}`,
-        html: `
-          <h2>Novo contato pela landing PlanUrbi</h2>
-          <p><strong>Nome:</strong> ${c.nome}</p>
-          <p><strong>Município:</strong> ${c.municipio}</p>
-          <p><strong>Cargo/órgão:</strong> ${c.cargo || '—'}</p>
-          <p><strong>E-mail:</strong> ${c.email}</p>
-          <p><strong>Tipo de demanda:</strong> ${c.tipo || '—'}</p>
-          <p><strong>Mensagem:</strong><br/>${(c.mensagem || '—').replace(/\n/g, '<br/>')}</p>
-        `,
-      }),
-    });
-  } catch (error) {
-    console.error('Falha ao notificar equipe por e-mail (contato ja salvo):', error);
-  }
+function buildEmailBody(c: ContactPayload) {
+  return `
+    <h2 style="font-family:sans-serif;color:#00362D;">Novo contato pela landing PlanUrbi</h2>
+    <table style="font-family:sans-serif;font-size:14px;line-height:1.5;border-collapse:collapse;">
+      <tr><td style="padding:4px 8px;color:#666;">Nome</td><td style="padding:4px 8px;"><strong>${escapeHtml(c.nome)}</strong></td></tr>
+      <tr><td style="padding:4px 8px;color:#666;">Município</td><td style="padding:4px 8px;"><strong>${escapeHtml(c.municipio)}</strong></td></tr>
+      <tr><td style="padding:4px 8px;color:#666;">Cargo/órgão</td><td style="padding:4px 8px;">${escapeHtml(c.cargo || '—')}</td></tr>
+      <tr><td style="padding:4px 8px;color:#666;">E-mail</td><td style="padding:4px 8px;"><a href="mailto:${encodeURIComponent(c.email)}">${escapeHtml(c.email)}</a></td></tr>
+      <tr><td style="padding:4px 8px;color:#666;">Tipo de demanda</td><td style="padding:4px 8px;">${escapeHtml(c.tipo || '—')}</td></tr>
+    </table>
+    <h3 style="font-family:sans-serif;color:#00362D;margin-top:24px;">Mensagem</h3>
+    <p style="font-family:sans-serif;font-size:14px;line-height:1.6;white-space:pre-wrap;">${escapeHtml(c.mensagem || '—')}</p>
+    <hr style="margin:24px 0;border:none;border-top:1px solid #ddd;" />
+    <p style="font-family:sans-serif;font-size:12px;color:#888;">
+      Enviado automaticamente pela landing page do PlanUrbi.<br/>
+      Para responder, basta usar "Responder" — o e-mail vai direto para o remetente.
+    </p>
+  `;
 }
 
 export async function POST(req: NextRequest) {
   try {
-    const { nome, municipio, cargo, email, tipo, mensagem } = await req.json();
+    const body = (await req.json()) as Partial<ContactPayload>;
+    const nome = (body.nome || '').trim();
+    const municipio = (body.municipio || '').trim();
+    const email = (body.email || '').trim();
+    const cargo = (body.cargo || '').trim();
+    const tipo = (body.tipo || '').trim();
+    const mensagem = (body.mensagem || '').trim();
 
     if (!nome || !municipio || !email) {
       return NextResponse.json(
@@ -59,33 +54,57 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Admin SDK: escrita server-side que ignora as Security Rules do
-    // Firestore (nao precisa liberar a colecao por regra). Usa as
-    // credenciais de service-account (FIREBASE_PROJECT_ID/CLIENT_EMAIL/
-    // PRIVATE_KEY) — as mesmas ja configuradas no deploy de producao.
-    const docRef = await getAdminDb().collection('contatos-landing').add({
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      console.error('RESEND_API_KEY ausente. Configure nas env vars do Vercel.');
+      return NextResponse.json(
+        { error: 'Servidor de e-mail não configurado.' },
+        { status: 500 },
+      );
+    }
+
+    const from = process.env.CONTATO_EMAIL_FROM || 'PlanUrbi <onboarding@resend.dev>';
+    const to = process.env.CONTATO_EMAIL_TO || 'contato@planurbi.com.br';
+
+    const payload = {
       nome,
       municipio,
-      cargo: cargo || '',
+      cargo,
       email,
-      tipo: tipo || '',
-      mensagem: mensagem || '',
-      origem: 'landing-2026',
-      createdAt: admin.firestore.FieldValue.serverTimestamp(),
-      status: 'novo',
+      tipo,
+      mensagem,
+    };
+
+    const resp = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from,
+        to,
+        reply_to: email,
+        subject: `Novo contato da landing — ${municipio}`,
+        html: buildEmailBody(payload),
+      }),
     });
 
-    console.log('Contato da landing salvo com o ID: ', docRef.id);
-
-    await notificarEquipe({ nome, municipio, cargo, email, tipo, mensagem });
+    if (!resp.ok) {
+      const detail = await resp.text().catch(() => '');
+      console.error('Resend respondeu com falha:', resp.status, detail);
+      return NextResponse.json(
+        { error: 'Não foi possível enviar agora. Tente novamente em instantes.' },
+        { status: 502 },
+      );
+    }
 
     return NextResponse.json(
-      { message: 'Contato enviado com sucesso!', id: docRef.id },
+      { message: 'Contato enviado com sucesso!' },
       { status: 201 },
     );
   } catch (error) {
-    console.error('Erro ao salvar contato no Firebase:', error);
-
+    console.error('Erro inesperado ao processar contato:', error);
     return NextResponse.json(
       { error: 'Ocorreu um erro ao enviar sua solicitação.' },
       { status: 500 },
