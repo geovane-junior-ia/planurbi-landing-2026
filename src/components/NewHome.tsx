@@ -424,33 +424,37 @@ const coordinationSlugs = new Set(["melissa", "rute", "raquel"]);
 const coordinationTeam = team.filter((m) => coordinationSlugs.has(m.slug));
 const otherTeam = team.filter((m) => !coordinationSlugs.has(m.slug));
 
-type OdsItem = { id: number; label: string; color: string };
+type OdsItem = { id: number; label: string };
 
 const odsHighlight: OdsItem[] = [
-  { id: 11, label: "Cidades e Comunidades Sustentáveis", color: "#FD9D24" },
+  { id: 11, label: "Cidades e Comunidades Sustentáveis" },
 ];
 
 const odsSecondary: OdsItem[] = [
-  { id: 1, label: "Erradicação da Pobreza", color: "#E5243B" },
-  { id: 6, label: "Água Potável e Saneamento", color: "#26BDE2" },
-  { id: 8, label: "Trabalho Decente e Crescimento Econômico", color: "#A21942" },
-  { id: 9, label: "Indústria, Inovação e Infraestrutura", color: "#FD6925" },
-  { id: 10, label: "Redução das Desigualdades", color: "#DD1367" },
-  { id: 13, label: "Ação Contra a Mudança Global do Clima", color: "#3F7E44" },
-  { id: 15, label: "Vida Terrestre", color: "#56C02B" },
-  { id: 16, label: "Paz, Justiça e Instituições Eficazes", color: "#00689D" },
-  { id: 17, label: "Parcerias e Meios de Implementação", color: "#19486A" },
+  { id: 1, label: "Erradicação da Pobreza" },
+  { id: 6, label: "Água Potável e Saneamento" },
+  { id: 8, label: "Trabalho Decente e Crescimento Econômico" },
+  { id: 9, label: "Indústria, Inovação e Infraestrutura" },
+  { id: 10, label: "Redução das Desigualdades" },
+  { id: 13, label: "Ação Contra a Mudança Global do Clima" },
+  { id: 15, label: "Vida Terrestre" },
+  { id: 16, label: "Paz, Justiça e Instituições Eficazes" },
+  { id: 17, label: "Parcerias e Meios de Implementação" },
 ];
 
 function OdsTile({ ods, size = "default" }: { ods: OdsItem; size?: "default" | "highlight" }) {
+  const dimensions = size === "highlight" ? 240 : 120;
   return (
     <div
       className={`${styles.odsTile} ${size === "highlight" ? styles.odsTileHighlight : ""}`}
-      style={{ background: ods.color }}
       title={`ODS ${ods.id} — ${ods.label}`}
     >
-      <span className={styles.odsTileNumber}>{ods.id}</span>
-      <span className={styles.odsTileLabel}>{ods.label}</span>
+      <Image
+        src={`/ods/ods-${ods.id}.png`}
+        alt={`ODS ${ods.id} — ${ods.label}`}
+        width={dimensions}
+        height={dimensions}
+      />
     </div>
   );
 }

@@ -766,58 +766,32 @@
 .odsTile {
   position: relative;
   aspect-ratio: 1 / 1;
-  border-radius: 6px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: #ffffff;
-  text-decoration: none;
+  display: block;
   overflow: hidden;
+  border-radius: 4px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 54, 45, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 54, 45, 0.12);
 }
 
 .odsTile:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(0, 54, 45, 0.2);
+  box-shadow: 0 10px 24px rgba(0, 54, 45, 0.22);
 }
 
-.odsTileNumber {
-  font-family: var(--font-anek);
-  font-size: 28px;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-
-.odsTileLabel {
-  font-family: var(--font-hauora);
-  font-size: 9px;
-  font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  text-align: right;
+.odsTile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .odsTileHighlight {
-  padding: 18px;
   box-shadow: 0 14px 32px rgba(253, 157, 36, 0.36);
 }
 
-.odsTileHighlight .odsTileNumber {
-  font-size: 64px;
-}
-
-.odsTileHighlight .odsTileLabel {
-  font-size: 13px;
-  line-height: 1.18;
-}
-
 .odsIconsRow .odsTileHighlight {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
 }
 
 .teamCard {
